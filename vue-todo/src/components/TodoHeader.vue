@@ -1,15 +1,13 @@
 <template>
-  <div>
-      header
-  </div>
+  <header>
+    <h1>TODO APP</h1>
+  </header>
 </template>
 
-<script>
-export default {
-
+<style scoped>
+h1 {
+  color: #2f3b52;
+  font-weight: 900;
+  margin: 2.5rem 0.15rem; /* 바깥여백 */
 }
-</script>
-
-<style>
-
 </style>
