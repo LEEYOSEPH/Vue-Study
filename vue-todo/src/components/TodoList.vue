@@ -1,11 +1,29 @@
 <template>
   <div>
-      list
+      <ul>
+        <li v-for="todoItem in todoItems" v-bind:key="todoItem">{{todoItem}}</li>
+      </ul>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      todoItems: []
+    }
+  },
+  created() {
+    //인스턴스 생성되자 마자 실행하는 훅
+   if(localStorage.length > 0) {
+     for(var i = 0; i<localStorage.length; i++) {
+       if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+         this.todoItems.push(localStorage.key(i));
+         console.log(localStorage.key(i));
+       }
+     }
+   }
+  },
 
 }
 </script>
