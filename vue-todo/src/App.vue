@@ -2,7 +2,10 @@
   <div id="app">
     <todo-header/>
     <todo-input v-on:addTodoItem="addOneItem"/>
-    <todo-list v-bind:propsdata="todoItems" v-on:removeItem="removeOneItem"/>
+    <todo-list v-bind:propsdata="todoItems" 
+              v-on:removeItem="removeOneItem" 
+              v-on:toggleItem="toggleOneItme"
+    />
     <todo-footer/>
   </div>
 </template>
@@ -28,6 +31,11 @@ export default {
     removeOneItem(todoItem,index) {
       localStorage.removeItem(todoItem.item)
       this.todoItems.splice(index, 1);
+    },
+    toggleOneItme(todoItem,index){
+      this.todoItems[index].completed = !this.todoItems[index].completed
+      localStorage.removeItem(todoItem.item);
+      localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
     }
   },
   created() {
