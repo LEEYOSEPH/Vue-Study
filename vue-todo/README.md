@@ -1,24 +1,25 @@
-# vue-todo
+# TODO APP
+```
+인프런 캡틴판교님의  Vue.js 중급 강좌를 보고 만든 앱 입니다.
+```
+## 개발 환경
 
-## Project setup
+### IDE 
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+Visual Studio Code
 ```
 
-### Lints and fixes files
+### APP
 ```
-npm run lint
+Vue
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 기능
+```
+할일 추가 하기
+할일 목록 보기
+할일 삭제 하기
+할일 모두 삭제
+```
+
+
