@@ -18,10 +18,10 @@
 export default {
   methods: {
     removeTodo(todoItem,index) {
-      this.$store.commit('removeItem',{todoItem,index})
+      this.$store.commit('removeOneItem',{todoItem,index})
     },
     toggleComplte(todoItem,index) {
-      this.$store.commit('toggleItem',{todoItem,index});
+      this.$store.commit('toggleOneItme',{todoItem,index});
     }
   }
 }
