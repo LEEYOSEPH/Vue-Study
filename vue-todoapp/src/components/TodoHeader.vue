@@ -1,7 +1,6 @@
 <template>
   <header>
-    <!-- <h1>TODO APP</h1> -->
-    <h1>{{this.$store.state.headerText}}</h1>
+    <h1>TODO APP</h1>
   </header>
 </template>
 
