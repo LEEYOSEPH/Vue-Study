@@ -5,13 +5,13 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 export default {
   methods: {
-    clearTodo() {
-      this.$store.commit('crearAllItems')
-    }
+    ...mapMutations({
+      clearTodo:'crearAllItems'
+    })
   },
-
 }
 </script>
 
@@ -28,5 +28,4 @@ export default {
   color: #e20303;
   display: block;
 }
-
 </style>
