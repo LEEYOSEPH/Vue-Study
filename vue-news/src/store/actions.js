@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { fetchNewsList, fetchJobsList, fetchAskList } from "../api/index.js";
 export default {
   FETCH_NEWS({ commit }) {
