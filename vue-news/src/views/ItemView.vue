@@ -1,9 +1,29 @@
 <template>
   <div>
-    <p>{{item.title}}</p>
-    <div>
-      {{item.content}}
-    </div>
+    <section>
+      <!-- 질문 상세 정보 -->
+      <div class="user-container">
+        <div>
+          <!-- 사용자 이름 -->
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="user-description">
+          <!-- 사용자 정보 -->
+          <router-link :to="`/user/${item.user}`">
+            {{item.user}}
+          </router-link>
+          <div class="time">
+            {{item.time_ago}}
+          </div>
+        </div>
+      </div>
+        <h2>{{item.title}}</h2>
+    </section>
+    <section>
+      <!-- 질문 댓글 -->
+      <div v-html="item.content">
+      </div>
+    </section>
   </div>
 </template>
 
@@ -22,4 +42,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+  .user-container{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+  }
+  .fa-user {
+    font-size: 2.5rem;
+  }
+  .user-description{
+    padding-left: 8px;
+  }
+  .time{
+    font-size: 0.7rem;
+  }
+</style>
