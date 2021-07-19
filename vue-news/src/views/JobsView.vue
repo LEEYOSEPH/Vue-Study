@@ -16,7 +16,6 @@ export default {
       this.$store
         .dispatch("FETCH_JOBS")
         .then(() => {
-          console.log("fetched");
           bus.$emit("end:spinner");
         })
         .catch((error) => {

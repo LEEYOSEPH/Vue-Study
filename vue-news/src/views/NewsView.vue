@@ -18,13 +18,12 @@ export default {
       this.$store
         .dispatch("FETCH_NEWS")
         .then(() => {
-          console.log("fetched");
           bus.$emit("end:spinner");
         })
         .catch((error) => {
           console.log(error);
         });
-    }, 3000);
+    }, 1000);
   },
 };
 </script>
