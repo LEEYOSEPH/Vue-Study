@@ -4,7 +4,7 @@
     <transition name="page">
       <router-view></router-view>
     </transition>
-    <spinner :loading="true"></spinner>
+    <spinner :loading="loadingStatus"></spinner>
   </div>
 </template>
 
@@ -12,6 +12,7 @@
 import ToolBar from "./components/ToolBar.vue";
 import Spinner from "./components/Spinner.vue";
 import bus from "./utils/bus.js";
+
 export default {
   components: {
     ToolBar,
@@ -23,7 +24,7 @@ export default {
     };
   },
   methods: {
-    stasrtSpinner() {
+    startSpinner() {
       this.loadingStatus = true;
     },
     endSpinner() {
@@ -31,11 +32,11 @@ export default {
     },
   },
   created() {
-    bus.$on("start:spinner", this.stasrtSpinner);
+    bus.$on("start:spinner", this.startSpinner);
     bus.$on("end:spinner", this.endSpinner);
   },
   beforeDestroy() {
-    bus.$off("start:spinner", this.stasrtSpinner);
+    bus.$off("start:spinner", this.startSpinner);
     bus.$off("end:spinner", this.endSpinner);
   },
 };
