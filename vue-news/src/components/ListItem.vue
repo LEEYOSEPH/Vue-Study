@@ -1,21 +1,23 @@
 <template>
   <div>
-    <ul class="ask-list">
-      <li v-for="item in fetchedAsk" v-bind:key="item.id" class="post">
+    <ul class="news-list">
+      <li v-for="item in fetchedNews" v-bind:key="item.id" class="post">
         <!-- 포인트 영역 -->
         <div class="points">
           {{ item.points }}
         </div>
         <!-- 기타 정보 영역 -->
         <div>
-          <p class="ask-title">
-            <router-link :to="`item/${item.id}`">
+          <p class="news-title">
+            <a v-bind:href="item.url">
               {{ item.title }}
-            </router-link>
+            </a>
           </p>
-          <small>
+          <small class="link-text">
             {{ item.time_ago }} by
-            {{ item.user }}
+            <router-link v-bind:to="`/user/${item.user}`" class="link-text">{{
+              item.user
+            }}</router-link>
           </small>
         </div>
       </li>
@@ -25,19 +27,18 @@
 
 <script>
 import { mapGetters } from "vuex";
-
 export default {
   computed: {
-    ...mapGetters(["fetchedAsk"]),
+    ...mapGetters(["fetchedNews"]),
   },
   created() {
-    this.$store.dispatch("FETCH_ASK");
+    this.$store.dispatch("FETCH_NEWS");
   },
 };
 </script>
 
 <style scoped>
-.ask-list {
+.news-list {
   margin: 0;
   padding: 0;
 }
@@ -55,7 +56,7 @@ export default {
   justify-content: center;
   color: #42b883;
 }
-.ask-title {
+.newes-title {
   margin: 0;
 }
 .link-text {
