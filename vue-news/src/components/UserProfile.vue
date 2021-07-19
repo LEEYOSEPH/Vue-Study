@@ -1,14 +1,21 @@
 <template>
   <div class="user-container">
     <div>
-      <!-- 사용자 이름 -->
       <i class="fas fa-user"></i>
     </div>
     <div class="user-description">
-      <!-- 사용자 정보 -->
-      <div>{{ userInfo.id }}</div>
+      <slot name="username">
+        <!-- 상위 컴포넌트에 정의 할 영역 -->
+      </slot>
       <div class="time">
-        {{ userInfo.created }}
+        <slot name="time">
+          <!-- 상위 컴포넌트에 정의 할 영역 -->
+        </slot>
+      </div>
+      <div>
+        <slot name="karma">
+          <!-- 상위 컴포넌트에 정의 할 영역 -->
+        </slot>
       </div>
     </div>
   </div>
@@ -16,10 +23,8 @@
 
 <script>
 export default {
-  computed: {
-    userInfo() {
-      return this.$store.state.user;
-    },
+  props: {
+    info: Object,
   },
 };
 </script>
