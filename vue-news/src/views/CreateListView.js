@@ -12,6 +12,7 @@ export default function createListView(name) {
           bus.$emit("end:spinner");
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         });
     },
