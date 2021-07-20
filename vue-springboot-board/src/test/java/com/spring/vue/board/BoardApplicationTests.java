@@ -1,4 +1,4 @@
-package com.vuejs.board;
+package com.spring.vue.board;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
