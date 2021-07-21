@@ -13,10 +13,6 @@ export default {
 	components: {
 		HelloWorld,
 	},
-	created() {
-		let a = 10;
-		console.log('h1');
-	},
 };
 </script>
 
