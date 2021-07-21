@@ -12,7 +12,6 @@
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-router": "^3.5.2",
-    "vuetify": "^2.5.7",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
@@ -26,10 +25,8 @@
     "fibers": "^5.0.0",
     "sass": "~1.32.0",
     "sass-loader": "^10.2.0",
-    "vue-cli-plugin-vuetify": "^2.4.1",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.14",
-    "vuetify-loader": "^1.7.0"
+    "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
     "root": true,
