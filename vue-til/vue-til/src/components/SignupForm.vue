@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { registerUser } from "../api/index";
+
 export default {
   data() {
     return {
@@ -32,6 +34,12 @@ export default {
       //form 태그 연결 이벤트
       //이벤트 버블링
       console.log("폼제출");
+      const userData = {
+        username: this.username,
+        password: this.password,
+        nickname: this.nickname,
+      };
+      registerUser(userData);
     },
   },
 };
