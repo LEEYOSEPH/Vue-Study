@@ -13,7 +13,7 @@
       <input id="nickname" type="text" v-model="nickname" />
     </div>
     <div>
-      <button type="submit">login</button>
+      <button type="submit">회원 가입</button>
     </div>
   </form>
 </template>
@@ -30,7 +30,7 @@ export default {
     };
   },
   methods: {
-    submitForm() {
+    async submitForm() {
       //form 태그 연결 이벤트
       //이벤트 버블링
       console.log("폼제출");
@@ -39,7 +39,8 @@ export default {
         password: this.password,
         nickname: this.nickname,
       };
-      registerUser(userData);
+      const response = await registerUser(userData);
+      console.log(response);
     },
   },
 };
