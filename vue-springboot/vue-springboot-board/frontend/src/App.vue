@@ -1,19 +1,15 @@
 <template>
-  <login-view></login-view>
+  <div>
+    <header>
+      <router-link to="/login">로그인</router-link>
+      <!-- <router-link to="/sign">회원 가입</router-link> -->
+    </header>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-import LoginView from "./views/LoginView.vue";
-export default {
-  components: {
-    LoginView,
-  },
-};
+export default {};
 </script>
 
-<style>
-body {
-  margin: 0%;
-  padding: 0;
-}
-</style>
+<style></style>

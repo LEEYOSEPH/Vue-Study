@@ -1,15 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import LoginPage from "../components/LoginPage.vue";
+import SignupPage from "../components/SignupPage.vue";
 
 Vue.use(VueRouter);
 
-export const router = new VueRouter({
+export default new VueRouter({
   mode: "history",
   routes: [
     {
-      path: "/",
+      path: "/login",
       name: "login",
-      redirect: "/login",
+      component: LoginPage,
+    },
+    {
+      path: "/sign",
+      name: "sign",
+      component: SignupPage,
     },
   ],
 });
