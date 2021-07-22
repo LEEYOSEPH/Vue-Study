@@ -1,5 +1,8 @@
 <template>
-  <div><signup-form></signup-form></div>
+  <div>
+    <h1>회원 가입</h1>
+    <signup-form></signup-form>
+  </div>
 </template>
 
 <script>
