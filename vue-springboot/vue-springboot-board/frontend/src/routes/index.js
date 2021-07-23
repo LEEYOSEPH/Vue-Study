@@ -12,15 +12,16 @@ export default new VueRouter({
     {
       path: "/login",
       name: "login",
-      component: () => import("../components/LoginPage.vue"),
+      component: () => import("../views/LoginPage.vue"),
     },
     {
       path: "/sign",
       name: "sign",
-      component: () => import("../components/SignupPage.vue"),
+      component: () => import("../views/SignupPage.vue"),
     },
     {
       path: "*",
+      component: () => import("../views/NotFoundPage.vue"),
     },
   ],
 });
