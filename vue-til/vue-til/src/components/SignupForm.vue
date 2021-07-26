@@ -12,13 +12,19 @@
       <label for="nickname">nickname</label>
       <input id="nickname" type="text" v-model="nickname" />
     </div>
-    <button type="submit">회원 가입</button>
+    <button
+      :disabled="!isUserNameValid || !password || !nickname"
+      type="submit"
+    >
+      회원 가입
+    </button>
     <p>{{ logMessage }}</p>
   </form>
 </template>
 
 <script>
 import { registerUser } from "../api/index";
+import { validateEmail } from "../utils/validation";
 
 export default {
   data() {
@@ -31,20 +37,27 @@ export default {
       logMessage: "",
     };
   },
+  computed: {
+    isUserNameValid() {
+      return validateEmail(this.username);
+    },
+  },
   methods: {
     async submitForm() {
-      //form 태그 연결 이벤트
-      //이벤트 버블링
-      console.log("폼제출");
-      const userData = {
-        username: this.username,
-        password: this.password,
-        nickname: this.nickname,
-      };
-      const { data } = await registerUser(userData);
-      console.log(data.username);
-      this.logMessage = `${data.username}님이 가입되었습니다.`;
-      this.initForm();
+      try {
+        //form 태그 연결 이벤트
+        //이벤트 버블링
+        const userData = {
+          username: this.username,
+          password: this.password,
+          nickname: this.nickname,
+        };
+        const { data } = await registerUser(userData);
+        this.logMessage = `${data.username}님이 가입되었습니다.`;
+        this.initForm();
+      } catch (error) {
+        this.logMessage = error.response.data;
+      }
     },
     initForm() {
       (this.username = ""), (this.password = ""), (this.nickname = "");
