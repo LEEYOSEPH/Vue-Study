@@ -6,7 +6,7 @@
           <label for="username">id:</label>
           <input id="username" type="text" v-model="username" />
           <p class="validation-text">
-            <span class="warning" v-if="!isUsernameValid && username">
+            <span class="warning" v-if="!isUserNameValidate && username">
               Please enter an email address
             </span>
           </p>
@@ -16,7 +16,7 @@
           <input id="password" type="text" v-model="password" />
         </div>
         <button
-          :disabled="!isUsernameValid || !password"
+          :disabled="!isUserNameValidate || !password"
           type="submit"
           class="btn"
         >
@@ -42,7 +42,7 @@ export default {
     };
   },
   computed: {
-    isUserNameValid() {
+    isUserNameValidate() {
       return validateEmail(this.username);
     },
   },
@@ -56,6 +56,7 @@ export default {
         };
         const { data } = await loginUser(userData);
         console.log(data.user.username);
+        this.$store.commit('setUsername', data.user.username);
         this.$router.push('/main');
         // this.logMessage = `${data.user.username} 님 환영합니다`;
       } catch (error) {
