@@ -25,8 +25,9 @@ public class UserController {
 	public void registerUser(@RequestBody UserDTO params, Model model) throws Exception {
 		
 			
-			System.out.println("1"+ params);
 			int rst = userService.registerUser(params);
+			System.out.println("결과"+ rst);
+			
 			
 
 	}
