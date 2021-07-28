@@ -5,4 +5,9 @@ function registerUser(userData) {
   return axios.post(url, userData);
 }
 
-export { registerUser };
+function loginUser(userData) {
+  const url = "/api/user/loginform";
+  return axios.post(url, userData);
+}
+
+export { registerUser, loginUser };

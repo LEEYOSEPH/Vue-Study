@@ -57,7 +57,7 @@ export default {
         const { data } = await loginUser(userData);
         // eslint-disable-next-line no-console
         console.log(data.user.username);
-        this.$store.commit("setUsername", data.user.username);
+        //this.$store.commit("setUsername", data.user.username);
         this.$router.push("/main");
         // this.logMessage = `${data.user.username} 님 환영합니다`;
       } catch (error) {
