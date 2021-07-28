@@ -15,6 +15,8 @@ import org.springframework.context.annotation.PropertySource;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Configuration
 @PropertySource("classpath:/application.properties")
 public class DBConfiguration {
@@ -29,20 +31,22 @@ public class DBConfiguration {
 
 	@Bean
 	public DataSource dataSource() {
-		return new HikariDataSource(hikariConfig());
+		DataSource dataSource = new HikariDataSource(hikariConfig());
+		log.info("datasource : {}", dataSource);
+		return dataSource;
 	}
 
 	@Bean
-	public SqlSessionFactory sqlSessionFactory() throws Exception {
-		SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
-		factoryBean.setDataSource(dataSource());
-//		factoryBean.setMapperLocations(applicationContext.getResources("classpath:/mappers/**/*Mapper.xml"));
-		return factoryBean.getObject();
+	public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
+		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+		sqlSessionFactoryBean.setDataSource(dataSource);
+		sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mappers/**/*.xml"));
+		return sqlSessionFactoryBean.getObject();
 	}
 
 	@Bean
-	public SqlSessionTemplate sqlSession() throws Exception {
-		return new SqlSessionTemplate(sqlSessionFactory());
+	public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
+		return new SqlSessionTemplate(sqlSessionFactory);
 	}
 
 }

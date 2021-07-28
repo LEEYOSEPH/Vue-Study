@@ -13,9 +13,12 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 	
 	@Override
-	public boolean registerUser(UserDTO params) {
-		// TODO Auto-generated method stub
-		return false;
+	public int registerUser(UserDTO params) throws Exception {
+		int rst = 0;
+		System.out.println(params);
+		rst = userMapper.registerUser(params);
+
+		return rst;
 	}
 
 }

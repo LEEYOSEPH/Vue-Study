@@ -1,6 +1,8 @@
 package com.vue.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +19,20 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	
 	@PostMapping("/joinform")
 	@ResponseBody
-	public void registerUser(@RequestBody UserDTO userDTO) {
+	public void registerUser(@RequestBody UserDTO params, Model model) throws Exception {
 		
-		System.out.println(userDTO.toString());
-		
+			
+			System.out.println("1"+ params);
+			int rst = userService.registerUser(params);
+			
+
 	}
+		
+}
 	
 	
 
-}
+

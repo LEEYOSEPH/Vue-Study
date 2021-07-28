@@ -1,3 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="mappers.UserMapper"></mapper>
+<mapper namespace="com.vue.springboot.mapper.UserMapper">
+
+	<resultMap id="resultUser" type="com.vue.springboot.domain.UserDTO" >
+		<result property="idx" column="idx" />
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<result property="nickname" column="nickname" />
+	</resultMap>
+	
+	<insert id="registerUser">
+		INSERT INTO tb_user VALUES (
+			idx
+			,#{username}
+			, #{password}
+			, #{nickname}
+		)
+	</insert>
+</mapper>
