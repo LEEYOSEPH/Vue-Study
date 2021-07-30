@@ -22,18 +22,18 @@
 </template>
 
 <script>
-import { registerUser } from '../api/index';
-import { validateEmail } from '../utils/validation';
+import { registerUser } from "../../api/index";
+import { validateEmail } from "../../utils/validation";
 
 export default {
   data() {
     return {
       //from value
-      username: '',
-      password: '',
-      nickname: '',
+      username: "",
+      password: "",
+      nickname: "",
       // log
-      logMessage: '',
+      logMessage: "",
     };
   },
   computed: {
@@ -59,7 +59,7 @@ export default {
       }
     },
     initForm() {
-      (this.username = ''), (this.password = ''), (this.nickname = '');
+      (this.username = ""), (this.password = ""), (this.nickname = "");
     },
   },
 };
