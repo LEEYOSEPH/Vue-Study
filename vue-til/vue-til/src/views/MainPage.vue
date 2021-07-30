@@ -7,7 +7,19 @@
 </template>
 
 <script>
-export default {};
+import { fetchPosts } from "../api/index";
+export default {
+  methods: {
+    async fetchData() {
+      const response = await fetchPosts();
+      console.log(response);
+    },
+  },
+  //페이지에 진입하자 마자 호출 할 수 있다.
+  created() {
+    this.fetchData();
+  },
+};
 </script>
 
 <style></style>
