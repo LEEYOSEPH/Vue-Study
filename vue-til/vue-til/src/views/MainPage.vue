@@ -2,23 +2,13 @@
   <div>
     <div class="main list-container contents">
       <h1 class="page-header">Today I Learned</h1>
-      <ul>
+      <loding-spinner v-if="isLoding"></loding-spinner>
+      <ul v-else>
         <post-list-item
           v-for="postItem in postItems"
           :key="postItem._id"
           :postItem="postItem"
         ></post-list-item>
-        <!-- <li v-for="postItem in postItems" :key="postItem._id">
-          <div class="post-title">
-            {{ postItem.title }}
-          </div>
-          <div class="post-contents">
-            {{ postItem.contents }}
-          </div>
-          <div class="post-time">
-            {{ postItem.createdAt }}
-          </div>
-        </li> -->
       </ul>
     </div>
   </div>
@@ -26,20 +16,24 @@
 
 <script>
 import PostListItem from "../components/posts/PostListItem.vue";
+import LodingSpinner from "../components/common/LoadingSpinner.vue";
 import { fetchPosts } from "../api/index";
 export default {
   components: {
     PostListItem,
+    LodingSpinner,
   },
   data() {
     return {
       postItems: [],
+      isLoding: false,
     };
   },
   methods: {
     async fetchData() {
+      this.isLoding = true;
       const { data } = await fetchPosts();
-      console.log(data.posts);
+      this.isLoding = false;
       this.postItems = data.posts;
     },
   },
