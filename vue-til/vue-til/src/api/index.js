@@ -1,32 +1,24 @@
 import axios from "axios";
 import { setInterceptors } from "./common/interceptors";
 
-// axios 초기화 함수
+//SETUP과 관련된 내용만 담겨있음
+
 function createInstance() {
-  const instance = axios.create({
+  return axios.create({
     baseURL: process.env.VUE_APP_API_URL,
+  });
+}
+
+// axios 초기화 함수
+function createInstanceWithAuth(url) {
+  const instance = axios.create({
+    baseURL: `${process.env.VUE_APP_API_URL}${url}`,
   });
   return setInterceptors(instance);
 }
-const instance = createInstance();
 
-// 회원가입 API
-function registerUser(userData) {
-  return instance.post("signup", userData);
-}
+//인증이 필요 없는 주소 처리
+export const instance = createInstance();
 
-// 로그인 API
-function loginUser(userData) {
-  return instance.post("login", userData);
-}
-
-// 학습노트 데이터를 조회 하는 API
-function fetchPosts() {
-  return instance.get("posts");
-}
-
-// 학습노트 데이터를 생성 하는 API
-function createPost(postData) {
-  return instance.post("posts", postData);
-}
-export { registerUser, loginUser, fetchPosts, createPost };
+// 토큰 인증이 필요한 주소 처리
+export const posts = createInstanceWithAuth("posts");
