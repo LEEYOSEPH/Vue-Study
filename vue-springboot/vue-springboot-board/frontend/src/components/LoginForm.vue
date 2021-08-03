@@ -4,19 +4,19 @@
       <form @submit.prevent="submitForm" class="form">
         <div>
           <label for="username">id:</label>
-          <input id="username" type="text" v-model="username" />
+          <input id="username" type="text" v-model="user_id" />
           <p class="validation-text">
-            <span class="warning" v-if="!isUserNameValidate && username">
+            <span class="warning" v-if="!isUserNameValidate && user_id">
               Please enter an email address
             </span>
           </p>
         </div>
         <div>
           <label for="password">pw:</label>
-          <input id="password" type="text" v-model="password" />
+          <input id="password" type="text" v-model="user_pw" />
         </div>
         <button
-          :disabled="!isUserNameValidate || !password"
+          :disabled="!isUserNameValidate || !user_pw"
           type="submit"
           class="btn"
         >
@@ -35,15 +35,15 @@ export default {
   data() {
     return {
       //form value
-      username: "",
-      password: "",
+      user_id: "",
+      user_pw: "",
       //log
       logMessage: "",
     };
   },
   computed: {
     isUserNameValidate() {
-      return validateEmail(this.username);
+      return validateEmail(this.user_id);
     },
   },
   methods: {
@@ -51,15 +51,14 @@ export default {
       try {
         //비즈니스 로직
         const userData = {
-          username: this.username,
-          password: this.password,
+          user_id: this.user_id,
+          user_pw: this.user_pw,
         };
         const { data } = await loginUser(userData);
         // eslint-disable-next-line no-console
-        console.log(data.user.username);
+        console.log(data.user.user_id);
         //this.$store.commit("setUsername", data.user.username);
         this.$router.push("/main");
-        // this.logMessage = `${data.user.username} 님 환영합니다`;
       } catch (error) {
         // 에러 핸들링할 코드
         // eslint-disable-next-line no-console
@@ -70,7 +69,7 @@ export default {
       }
     },
     initForm() {
-      (this.username = ""), (this.password = "");
+      (this.user_id = ""), (this.user_pw = "");
     },
   },
 };
