@@ -7,7 +7,7 @@
       </router-link>
     </div>
     <div class="navigations">
-      <template v-if="isUserLgoin">
+      <template v-if="isUserLogin">
         <a href="javascript:;" @click="logoutUser" class="logout-button">
           Logout
         </a>
@@ -21,11 +21,22 @@
 </template>
 
 <script>
+import { deleteCookie } from "../../utils/cookies";
 export default {
   /* 화면 데이터 표현을 변경 시키기 위해서 */
   computed: {
     isUserLogin() {
-      return this.$store.getter.isLogin;
+      // eslint-disable-next-line no-console
+      console.log(this.$store.getters.isLogin);
+      return this.$store.getters.isLogin;
+    },
+  },
+  methods: {
+    logoutUser() {
+      this.$store.commit("clearUserNo");
+      this.$store.commit("clearUserName");
+      deleteCookie("user_no");
+      deleteCookie("user_name");
     },
   },
 };

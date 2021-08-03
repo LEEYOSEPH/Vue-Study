@@ -19,7 +19,7 @@ export default new Vuex.Store({
   },
   getters: {
     isLogin(state) {
-      state.user_name !== "";
+      return state.user_name !== "";
     },
   },
   mutations: {
@@ -38,7 +38,7 @@ export default new Vuex.Store({
     },
 
     /* 유저명 삭제 */
-    clearUsername(state) {
+    clearUserName(state) {
       state.user_name = "";
     },
   },
@@ -48,7 +48,7 @@ export default new Vuex.Store({
     */
     async LOGIN({ commit }, userData) {
       const { data } = await loginUser(userData);
-      console.log(data.user_no);
+      console.log(data.user_name + "LGOIN함수에서 확인");
       commit("setUserNo", data.user_no);
       commit("setUserName", data.user_name);
       saveUserNoCookie(data.user_no);
