@@ -7,7 +7,11 @@ export default new VueRouter({
   routes: [
     {
       path: "/",
-      redirect: "/login",
+      redirect: "/main",
+    },
+    {
+      path: "/main",
+      component: () => import("../views/MainPage.vue"),
     },
     {
       path: "/login",

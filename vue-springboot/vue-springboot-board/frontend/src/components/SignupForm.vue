@@ -4,15 +4,15 @@
       <form @submit.prevent="submitForm" class="form">
         <div>
           <label for="username">id: </label>
-          <input id="username" type="text" v-model="username" />
+          <input id="username" type="text" v-model="user_id" />
         </div>
         <div>
           <label for="password">pw: </label>
-          <input id="password" type="text" v-model="password" />
+          <input id="password" type="text" v-model="user_pw" />
         </div>
         <div>
           <label for="nickname">nickname: </label>
-          <input id="nickname" type="text" v-model="nickname" />
+          <input id="nickname" type="text" v-model="user_name" />
         </div>
         <button type="submit" class="btn">회원 가입</button>
       </form>
@@ -28,9 +28,9 @@ export default {
   data() {
     return {
       //from value
-      username: "",
-      password: "",
-      nickname: "",
+      user_id: "",
+      user_pw: "",
+      user_name: "",
       // log
       logMessage: "",
     };
@@ -40,16 +40,17 @@ export default {
       //form 태그 연결 이벤트
       //이벤트 버블링
       const userData = {
-        username: this.username,
-        password: this.password,
-        nickname: this.nickname,
+        user_id: this.user_id,
+        user_pw: this.user_pw,
+        user_name: this.user_name,
       };
       const { data } = await registerUser(userData);
       this.logMessage = `${data.username}님이 가입되었습니다.`;
       this.initForm();
+      this.$router.push("/main");
     },
     initForm() {
-      (this.username = ""), (this.password = ""), (this.nickname = "");
+      (this.user_id = ""), (this.user_pw = ""), (this.user_name = "");
     },
   },
 };

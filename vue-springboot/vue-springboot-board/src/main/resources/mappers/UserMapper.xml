@@ -3,18 +3,18 @@
 <mapper namespace="com.vue.springboot.mapper.UserMapper">
 
 	<resultMap id="resultUser" type="com.vue.springboot.domain.UserDTO" >
-		<result property="idx" column="idx" />
-		<result property="username" column="username" />
-		<result property="password" column="password" />
-		<result property="nickname" column="nickname" />
+		<result property="user_no" column="user_no" />
+		<result property="user_id" column="user_id" />
+		<result property="user_pw" column="user_pw" />
+		<result property="user_name" column="user_name" />
 	</resultMap>
 	
 	<insert id="registerUser">
-		INSERT INTO tb_user VALUES (
-			idx
-			,#{username}
-			, #{password}
-			, #{nickname}
+		INSERT INTO USER VALUES (
+			user_no
+			,#{user_id}
+			, #{user_pw}
+			, #{user_name}
 		)
 	</insert>
 </mapper>

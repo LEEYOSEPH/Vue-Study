@@ -58,7 +58,7 @@ class VueSpringbootBoardApplicationTests {
 	@DisplayName("생성") 
 	void test3() throws Exception {
 		UserDTO user = new UserDTO(); 
-		user.setUsername("Tom"); 
+		user.setUser_name("Tom"); 
 		int insertCnt = userService.registerUser(user); 
 		System.out.println("=========================");
 		System.out.println(insertCnt);

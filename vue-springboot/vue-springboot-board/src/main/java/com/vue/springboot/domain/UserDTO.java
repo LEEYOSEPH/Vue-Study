@@ -8,15 +8,15 @@ import lombok.Data;
 public class UserDTO {
 	
 	/** 회원 번호 */
-	private String idx;
+	private String user_no;
 	
 	/** 아이디 */
-	private String username;
+	private String user_id;
 	
 	/** 비밀번호 */
-	private String password;
+	private String user_pw;
 	
 	/** 닉네임 */
-	private String nickname;
+	private String user_name;
 	
 }
