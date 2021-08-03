@@ -7,11 +7,17 @@ function saveUserIdCookie(value) {
 }
 
 function getUserNoFromCookie() {
-  return document.replace();
+  return document.cookie.replace(
+    /(?:(?:^|.*;\s*)user_no\s*=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  );
 }
 
 function getUserIdCookie() {
-  return document.replace();
+  return document.cookie.replace(
+    /(?:(?:^|.*;\s*)user_id\s*=\s*([^;]*).*$)|^.*$/,
+    "$1"
+  );
 }
 
 function deleteCookie(value) {
