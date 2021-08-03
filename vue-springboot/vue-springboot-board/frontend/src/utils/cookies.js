@@ -2,8 +2,8 @@ function saveUserNoCookie(value) {
   document.cookie = `user_no=${value}`;
 }
 
-function saveUserIdCookie(value) {
-  document.cookie = `user_id=${value}`;
+function saveUserNameCookie(value) {
+  document.cookie = `user_name=${value}`;
 }
 
 function getUserNoFromCookie() {
@@ -13,9 +13,9 @@ function getUserNoFromCookie() {
   );
 }
 
-function getUserIdCookie() {
+function getUserNameCookie() {
   return document.cookie.replace(
-    /(?:(?:^|.*;\s*)user_id\s*=\s*([^;]*).*$)|^.*$/,
+    /(?:(?:^|.*;\s*)user_name\s*=\s*([^;]*).*$)|^.*$/,
     "$1"
   );
 }
@@ -26,8 +26,8 @@ function deleteCookie(value) {
 
 export {
   deleteCookie,
-  getUserIdCookie,
+  getUserNameCookie,
   getUserNoFromCookie,
-  saveUserIdCookie,
+  saveUserNameCookie,
   saveUserNoCookie,
 };

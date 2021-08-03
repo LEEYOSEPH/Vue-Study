@@ -1,17 +1,34 @@
 <template>
   <header>
     <div>
-      <router-link to="/" class="logo"> TIL </router-link>
+      <router-link to="/" class="logo">
+        GE-SI-PAN
+        <span v-if="isUserLogin">{{ $store.state.user_name }}</span>
+      </router-link>
     </div>
     <div class="navigations">
-      <router-link to="/login">로그인</router-link> |
-      <router-link to="/sign">회원가입</router-link>
+      <template v-if="isUserLgoin">
+        <a href="javascript:;" @click="logoutUser" class="logout-button">
+          Logout
+        </a>
+      </template>
+      <template v-else>
+        <router-link to="/login">로그인</router-link> |
+        <router-link to="/sign">회원가입</router-link>
+      </template>
     </div>
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  /* 화면 데이터 표현을 변경 시키기 위해서 */
+  computed: {
+    isUserLogin() {
+      return this.$store.getter.isLogin;
+    },
+  },
+};
 </script>
 
 <style scoped>
