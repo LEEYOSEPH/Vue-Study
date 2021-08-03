@@ -17,4 +17,11 @@
 			, #{user_name}
 		)
 	</insert>
+	
+	<select id="loginUser" resultMap="resultUser">
+		SELECT *
+		FROM USER
+		WHERE user_id = #{user_id}
+		AND	user_pw = #{user_pw}
+	</select>
 </mapper>

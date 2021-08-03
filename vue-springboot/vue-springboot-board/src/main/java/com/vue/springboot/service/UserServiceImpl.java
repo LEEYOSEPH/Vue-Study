@@ -12,6 +12,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;
 	
+	/* 회원가입 */
 	@Override
 	public int registerUser(UserDTO params) throws Exception {
 		int rst = 0;
@@ -19,6 +20,13 @@ public class UserServiceImpl implements UserService {
 		rst = userMapper.registerUser(params);
 
 		return rst;
+	}
+	
+	/* 로그인 */
+	@Override
+	public UserDTO loginUser(UserDTO params) throws Exception {
+		
+		return userMapper.loginUser(params);
 	}
 
 }

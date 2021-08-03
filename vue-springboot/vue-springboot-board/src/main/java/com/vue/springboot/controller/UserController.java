@@ -42,7 +42,9 @@ public class UserController {
 		
 		System.out.println(params+"로그인 정보 확인");
 		
-		return params;
+		UserDTO responseParams = userService.loginUser(params);
+		System.out.println("확인 결과" + responseParams);
+		return responseParams;
 		
 	}
 		

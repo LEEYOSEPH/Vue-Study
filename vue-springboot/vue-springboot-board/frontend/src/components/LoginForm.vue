@@ -54,9 +54,9 @@ export default {
           user_id: this.user_id,
           user_pw: this.user_pw,
         };
-        const { data } = await loginUser(userData);
+        const response = await loginUser(userData);
         // eslint-disable-next-line no-console
-        console.log(data.user.user_id);
+        console.log(response);
         //this.$store.commit("setUsername", data.user.username);
         this.$router.push("/main");
       } catch (error) {
