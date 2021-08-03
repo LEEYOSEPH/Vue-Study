@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import { loginUser } from "../api/index";
 import { validateEmail } from "../utils/validation";
 export default {
   data() {
@@ -54,10 +53,7 @@ export default {
           user_id: this.user_id,
           user_pw: this.user_pw,
         };
-        const response = await loginUser(userData);
-        // eslint-disable-next-line no-console
-        console.log(response);
-        //this.$store.commit("setUsername", data.user.username);
+        await this.$store.dispatch("LOGIN", userData);
         this.$router.push("/main");
       } catch (error) {
         // 에러 핸들링할 코드
