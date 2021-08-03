@@ -29,15 +29,15 @@
 </template>
 
 <script>
-import { validateEmail } from "../../utils/validation";
+import { validateEmail } from '../../utils/validation';
 export default {
   data() {
     return {
       //form value
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       //log
-      logMessage: "",
+      logMessage: '',
     };
   },
   computed: {
@@ -53,8 +53,8 @@ export default {
           username: this.username,
           password: this.password,
         };
-        await this.$store.dispatch("LGOIN", userData);
-        this.$router.push("/main");
+        await this.$store.dispatch('LGOIN', userData);
+        this.$router.push('/main');
       } catch (error) {
         // 에러 핸들링할 코드
         console.log(error.response.data);
@@ -64,7 +64,7 @@ export default {
       }
     },
     initForm() {
-      (this.username = ""), (this.password = "");
+      (this.username = ''), (this.password = '');
     },
   },
 };

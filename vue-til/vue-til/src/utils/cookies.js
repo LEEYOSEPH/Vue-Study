@@ -9,14 +9,14 @@ function saveUserToCookie(value) {
 function getAuthFromCookie() {
   return document.cookie.replace(
     /(?:(?:^|.*;\s*)til_auth\s*=\s*([^;]*).*$)|^.*$/,
-    "$1"
+    '$1',
   );
 }
 
 function getUserFromCookie() {
   return document.cookie.replace(
     /(?:(?:^|.*;\s*)til_user\s*=\s*([^;]*).*$)|^.*$/,
-    "$1"
+    '$1',
   );
 }
 
