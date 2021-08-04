@@ -11,7 +11,7 @@
           <editor
             :value="editorText"
             :options="editorOptions"
-            previewStyle="none"
+            previewStyle="tab"
             mode="wysiwyg"
             ref="toastuiEditor"
           />
@@ -23,11 +23,10 @@
 </template>
 
 <script>
-import "codemirror/lib/codemirror.css";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/vue-editor";
+import "codemirror/lib/codemirror.css";
 import { createBoard } from "../../api/index";
-
 export default {
   components: {
     Editor,
