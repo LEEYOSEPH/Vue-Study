@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { validateEmail } from "../utils/validation";
+import { validateEmail } from "../../utils/validation";
 export default {
   data() {
     return {
