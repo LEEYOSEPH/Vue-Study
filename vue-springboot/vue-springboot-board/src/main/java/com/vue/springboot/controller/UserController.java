@@ -2,20 +2,17 @@ package com.vue.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.vue.springboot.domain.UserDTO;
 import com.vue.springboot.service.UserService;
 
 @RestController //비동기를 통신을 위한 어노테이션
 @RequestMapping("/api/user") //'/api/user'를 포함하는 모든 요청을 받음
-@SessionAttributes("loginInfo")
 public class UserController {
 	
 	@Autowired

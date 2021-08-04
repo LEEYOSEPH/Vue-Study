@@ -5,31 +5,66 @@
       <form class="form" @submit.prevent="submitForm">
         <div>
           <label for="title">Title </label>
-          <input id="title" type="text" v-model="title" />
+          <input id="title" type="text" v-model="board_title" />
         </div>
         <div>
-          <toast-editor></toast-editor>
+          <editor
+            :value="editorText"
+            :options="editorOptions"
+            previewStyle="none"
+            mode="wysiwyg"
+            ref="toastuiEditor"
+          />
         </div>
         <button type="submit" class="btn">Create</button>
       </form>
-      <p class="log">
-        {{ logMessage }}
-      </p>
     </div>
   </div>
 </template>
 
 <script>
-import ToastEditor from '../utils/ToastEditor.vue';
+import "codemirror/lib/codemirror.css";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import { Editor } from "@toast-ui/vue-editor";
+import { createBoard } from "../../api/index";
 
 export default {
-  components: { ToastEditor },
-  
+  components: {
+    Editor,
+  },
+  data() {
+    return {
+      board_title: "",
+      editorText: "",
+      editorOptions: {
+        hideModeSwitch: true,
+      },
+    };
+  },
+  methods: {
+    async submitForm() {
+      try {
+        const boardData = {
+          board_title: this.board_title,
+          board_content: this.$refs.toastuiEditor.invoke("getHtml"),
+          user_no: this.$store.state.user_no,
+        };
+        const { data } = await createBoard(boardData);
+        console.log(data);
+        this.$router.push("/main");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
-.form {
+.form-wrapper .form {
   width: 100%;
-  height: 100%;
 }
+.btn {
+  color: white;
+}
+</style>
