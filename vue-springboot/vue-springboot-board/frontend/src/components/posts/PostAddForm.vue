@@ -61,7 +61,7 @@ export default {
         headers: { "Content-Type": "multipart/form-data" },
       });
       console.log(response.data.img_url);
-      this.board_image = response;
+      this.board_image = response.data.img_url;
     },
     async submitForm() {
       try {
