@@ -34,28 +34,5 @@ public class BoardController {
 		return params;
 	}
 	
-	@PostMapping("/uploadImage")
-	@ResponseBody
-	public ImageDTO uploadImage(@RequestParam(value = "img", required = false) MultipartFile file, ImageDTO img, HttpServletRequest request) throws Exception {
-		
-		System.out.println(file.getOriginalFilename());
-		
-		String path = request.getRealPath("/resources/static/upload");
-		String fileName = file.getOriginalFilename();
-		File uploadFile = new File(path+"/"+fileName);
-		try {
-			file.transferTo(uploadFile);
-		} catch (IllegalStateException e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}catch (IOException e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-		System.out.println(uploadFile);
-		String pathUrl = path+"/"+fileName;
-		img.setImg_url(pathUrl);
-		System.out.println(img.getImg_url());
-		return img;
-	}
+	
 }

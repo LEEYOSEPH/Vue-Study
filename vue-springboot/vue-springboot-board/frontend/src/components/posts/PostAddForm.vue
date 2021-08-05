@@ -37,6 +37,7 @@
 <script>
 import axios from "axios";
 import { createBoard } from "../../api/index";
+import { imgUpload } from "../../api/images";
 export default {
   data() {
     return {
@@ -57,11 +58,9 @@ export default {
       var formData = new FormData();
       formData.append("img", this.board_image);
 
-      const response = await axios.post("/api/board/uploadImage", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      console.log(response.data.img_url);
-      this.board_image = response.data.img_url;
+      const { data } = await imgUpload(formData);
+      console.log(data.img_url);
+      this.board_image = data.img_url;
     },
     async submitForm() {
       try {
