@@ -53,7 +53,8 @@ public class BoardController {
 			e.printStackTrace();
 		}
 		System.out.println(uploadFile);
-		img.setImg_url(path+"//"+fileName);
+		String pathUrl = path+"/"+fileName;
+		img.setImg_url(pathUrl);
 		System.out.println(img.getImg_url());
 		return img;
 	}
