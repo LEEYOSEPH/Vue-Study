@@ -19,7 +19,7 @@ import com.vue.springboot.domain.ImageDTO;
 public class ImageController {
 
 	
-	@PostMapping("/uploadImage")
+	@PostMapping("/upload")
 	@ResponseBody
 	public ImageDTO uploadImage(@RequestParam(value = "img", required = false) MultipartFile file, ImageDTO img, HttpServletRequest request) throws Exception {
 		

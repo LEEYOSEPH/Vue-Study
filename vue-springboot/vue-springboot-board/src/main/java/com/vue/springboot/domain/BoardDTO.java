@@ -24,4 +24,5 @@ public class BoardDTO {
 	private int board_cnt;
 	
 	private String board_image;
+	
 }

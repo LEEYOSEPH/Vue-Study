@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { createBoard } from "../../api/index";
 import { imgUpload } from "../../api/images";
 export default {
