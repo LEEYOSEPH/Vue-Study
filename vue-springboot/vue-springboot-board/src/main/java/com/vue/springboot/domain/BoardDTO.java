@@ -22,4 +22,6 @@ public class BoardDTO {
 	private Date board_updateDt;
 	
 	private int board_cnt;
+	
+	private String board_image;
 }
