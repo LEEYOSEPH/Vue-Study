@@ -25,4 +25,6 @@ public class BoardDTO {
 	
 	private String board_image;
 	
+	private int user_no;
+	
 }
