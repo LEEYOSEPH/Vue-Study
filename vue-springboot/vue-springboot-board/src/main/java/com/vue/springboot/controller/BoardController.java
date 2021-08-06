@@ -51,9 +51,13 @@ public class BoardController {
 	/* 게시물 상세 조회 */
 	@PostMapping("/getBoardDetail")
 	@ResponseBody
-	public void getBoardDetail(@RequestBody BoardDTO params) throws Exception{
-		System.out.println(params);	
+	public BoardDTO getBoardDetail(@RequestBody BoardDTO params) throws Exception{
 		
+		params = boardService.getBoardDetail(params);
+		
+		System.out.println(params+"디테일 확인");	
+		
+		return params;
 	}
 	
 }

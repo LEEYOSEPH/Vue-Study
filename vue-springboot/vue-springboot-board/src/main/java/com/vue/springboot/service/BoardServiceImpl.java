@@ -29,4 +29,10 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.getBoardList();
 	}
 
+	@Override
+	public BoardDTO getBoardDetail(BoardDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.getBoardDetail(params);
+	}
+
 }

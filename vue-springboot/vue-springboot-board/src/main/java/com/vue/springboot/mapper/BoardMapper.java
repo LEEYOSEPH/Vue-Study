@@ -12,5 +12,7 @@ public interface BoardMapper {
 	public int insertBoard(BoardDTO params) throws Exception;
 	
 	public List<BoardDTO> getBoardList() throws Exception;
+	
+	public BoardDTO getBoardDetail(BoardDTO params) throws Exception;
 
 }
