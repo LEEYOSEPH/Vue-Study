@@ -44,6 +44,7 @@ public class BoardController {
 	public List<BoardDTO> getBoard() throws Exception {
 		
 		List<BoardDTO> boardList = boardService.getBoardList();
+		
 		System.out.println("들어오나?" + boardList);
 		
 		return  boardList;

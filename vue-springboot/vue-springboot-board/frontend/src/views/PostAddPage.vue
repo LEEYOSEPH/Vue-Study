@@ -1,11 +1,11 @@
 <template>
-  <post-add-form></post-add-form>
+  <board-add-form></board-add-form>
 </template>
 
 <script>
-import PostAddForm from "../components/posts/PostAddForm.vue";
+import BoardAddForm from "../components/boards/BoardAddForm.vue";
 export default {
-  components: { PostAddForm },
+  components: { BoardAddForm },
 };
 </script>
 

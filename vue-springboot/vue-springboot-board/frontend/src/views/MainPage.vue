@@ -3,12 +3,12 @@
     <div class="main list-container contents">
       <h1 class="page-header">GE SI PAN</h1>
       <ul>
-        <post-list-item
+        <board-list-item
           v-for="boardItem in boardItems"
           :key="boardItem.board_no"
-          :postItem="postItem"
+          :boardItem="boardItem"
           @refresh="fetchData"
-        ></post-list-item>
+        ></board-list-item>
       </ul>
     </div>
     <router-link to="/add" class="create-button" v-if="isLogin">
@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import PostListItem from "../components/posts/PostListItem.vue";
+import BoardListItem from "../components/boards/BoardListItem.vue";
 import { fetchBoard } from "../api/boards";
 
 export default {
-  components: { PostListItem },
+  components: { BoardListItem },
   data() {
     return {
       boardItems: [],
@@ -38,7 +38,7 @@ export default {
       const { data } = await fetchBoard();
       this.boardItems = data;
       console.log(this.boardItems);
-      console.log(data.board_no);
+      console.log(data);
     },
   },
   created() {
