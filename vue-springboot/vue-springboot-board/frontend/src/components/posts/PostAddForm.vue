@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { createBoard } from "../../api/index";
+import { createBoard } from "../../api/boards";
 import { imgUpload } from "../../api/images";
 export default {
   data() {
@@ -51,6 +51,9 @@ export default {
     },
   },
   methods: {
+    /* 파일 업로드 메소드
+      외부에 저장 된 뒤 저장 주소 String반환
+    */
     async onFileChanged() {
       this.board_image = this.$refs.image.files[0];
 
@@ -61,6 +64,7 @@ export default {
       console.log(data.img_url);
       this.board_image = data.img_url;
     },
+    /* 게시글 등록 메소드 */
     async submitForm() {
       try {
         const boardData = {
@@ -69,9 +73,7 @@ export default {
           board_image: this.board_image,
           user_no: this.$store.state.user_no,
         };
-        console.log(boardData);
         const { data } = await createBoard(boardData);
-        console.log(data);
         this.$router.push("/main");
       } catch (error) {
         console.log(error);
