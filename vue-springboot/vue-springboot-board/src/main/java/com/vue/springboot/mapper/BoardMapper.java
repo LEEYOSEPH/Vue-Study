@@ -1,5 +1,7 @@
 package com.vue.springboot.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.vue.springboot.domain.BoardDTO;
@@ -8,5 +10,7 @@ import com.vue.springboot.domain.BoardDTO;
 public interface BoardMapper {
 	
 	public int insertBoard(BoardDTO params) throws Exception;
+	
+	public List<BoardDTO> getBoardList() throws Exception;
 
 }

@@ -3,7 +3,12 @@
     <div class="main list-container contents">
       <h1 class="page-header">GE SI PAN</h1>
       <ul>
-        <post-list-item @refresh="fetchData"></post-list-item>
+        <post-list-item
+          v-for="boardItem in boardItems"
+          :key="boardItem.board_no"
+          :postItem="postItem"
+          @refresh="fetchData"
+        ></post-list-item>
       </ul>
     </div>
     <router-link to="/add" class="create-button" v-if="isLogin">
@@ -18,6 +23,11 @@ import { fetchBoard } from "../api/boards";
 
 export default {
   components: { PostListItem },
+  data() {
+    return {
+      boardItems: [],
+    };
+  },
   computed: {
     isLogin() {
       return this.$store.getters.isLogin;
@@ -26,8 +36,13 @@ export default {
   methods: {
     async fetchData() {
       const { data } = await fetchBoard();
-      console.log(data.params);
+      this.boardItems = data;
+      console.log(this.boardItems);
+      console.log(data.board_no);
     },
+  },
+  created() {
+    this.fetchData();
   },
 };
 </script>

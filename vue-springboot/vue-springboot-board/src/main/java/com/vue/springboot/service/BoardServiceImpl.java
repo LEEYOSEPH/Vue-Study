@@ -1,5 +1,7 @@
 package com.vue.springboot.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,12 @@ public class BoardServiceImpl implements BoardService {
 		rst = boardMapper.insertBoard(params);
 		
 		return rst;
+	}
+
+	@Override
+	public List<BoardDTO> getBoardList() throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.getBoardList();
 	}
 
 }

@@ -2,7 +2,10 @@ package com.vue.springboot.controller;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +36,17 @@ public class BoardController {
 		
 		System.out.println("결과" + rst);
 		
+	}
+	
+	/* 전체 게시글 조회 */
+	@GetMapping("/getBoard")
+	@ResponseBody
+	public List<BoardDTO> getBoard() throws Exception {
+		
+		List<BoardDTO> boardList = boardService.getBoardList();
+		System.out.println("들어오나?" + boardList);
+		
+		return  boardList;
 	}
 	
 	

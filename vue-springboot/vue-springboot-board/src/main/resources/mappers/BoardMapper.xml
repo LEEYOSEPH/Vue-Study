@@ -25,5 +25,11 @@
 			,#{board_image}
 		)
 	</insert>
+	
+	<select id="getBoardList" resultMap="resultBoard">
+		SELECT *
+		FROM BOARD
+		ORDER BY board_updateDt DESC
+	</select>
 
 </mapper>
