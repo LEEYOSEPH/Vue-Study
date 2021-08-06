@@ -10,9 +10,4 @@ function loginUser(userData) {
   return axios.post(url, userData);
 }
 
-function createBoard(boardData) {
-  const url = "/api/board/createBoard";
-  return axios.post(url, boardData);
-}
-
-export { registerUser, loginUser, createBoard };
+export { registerUser, loginUser };

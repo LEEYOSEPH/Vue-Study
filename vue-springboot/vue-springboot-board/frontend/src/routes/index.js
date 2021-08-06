@@ -31,7 +31,12 @@ export default new VueRouter({
       /* 게시글 작성 페이지 이동 */
       path: "/add",
       name: "add",
-      component: () => import("../views/PostAddPage.vue"),
+      component: () => import("../views/AddBoardPage.vue"),
+    },
+    {
+      /* 게시글 상세조회 페이지 이동 */
+      path: "/board/:board_no",
+      component: () => import("../views/BoardDetailPage.vue"),
     },
     {
       /* 경로가 올바르지 않으면 오류 페이지이동 */

@@ -10,4 +10,9 @@ function fetchBoard() {
   return axios.get(url);
 }
 
-export { createBoard, fetchBoard };
+function getBoardDetail(boardData) {
+  const url = "/api/board/getBoardDetail";
+  return axios.post(url, boardData);
+}
+
+export { createBoard, fetchBoard, getBoardDetail };

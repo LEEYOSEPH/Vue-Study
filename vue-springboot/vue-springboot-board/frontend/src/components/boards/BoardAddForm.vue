@@ -61,7 +61,6 @@ export default {
       formData.append("img", this.board_image);
 
       const { data } = await imgUpload(formData);
-      console.log(data.img_url);
       this.board_image = data.img_url;
     },
     /* 게시글 등록 메소드 */

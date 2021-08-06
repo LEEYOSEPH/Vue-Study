@@ -12,7 +12,7 @@
       </ul>
     </div>
     <router-link to="/add" class="create-button" v-if="isLogin">
-      <i class="ion-md-add"></i>
+      <i class="icon ion-md-create"></i>
     </router-link>
   </div>
 </template>
@@ -35,10 +35,12 @@ export default {
   },
   methods: {
     async fetchData() {
-      const { data } = await fetchBoard();
-      this.boardItems = data;
-      console.log(this.boardItems);
-      console.log(data);
+      try {
+        const { data } = await fetchBoard();
+        this.boardItems = data;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
   created() {
@@ -47,4 +49,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scope>
+.ion-md-create {
+  color: #456155;
+}
+</style>

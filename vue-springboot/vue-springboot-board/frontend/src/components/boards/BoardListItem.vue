@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li v-on:click="getBoardDetail">
     <div class="board-title">
       {{ boardItem.board_title }}
     </div>
@@ -7,7 +7,7 @@
       {{ boardItem.board_content }}
     </div>
     <div class="board-time">
-      {{ boardItem.updateDt }}
+      {{ boardItem.board_updateDt | formatDate }}
     </div>
   </li>
 </template>
@@ -18,6 +18,13 @@ export default {
     boardItem: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    getBoardDetail() {
+      const board_no = this.boardItem.board_no;
+      this.$store.commit("getBoardNo", board_no);
+      this.$router.push(`/board/${board_no}`);
     },
   },
 };

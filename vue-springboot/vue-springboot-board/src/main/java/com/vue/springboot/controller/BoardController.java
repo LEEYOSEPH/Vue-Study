@@ -45,10 +45,15 @@ public class BoardController {
 		
 		List<BoardDTO> boardList = boardService.getBoardList();
 		
-		System.out.println("들어오나?" + boardList);
-		
 		return  boardList;
 	}
 	
+	/* 게시물 상세 조회 */
+	@PostMapping("/getBoardDetail")
+	@ResponseBody
+	public void getBoardDetail(@RequestBody BoardDTO params) throws Exception{
+		System.out.println(params);	
+		
+	}
 	
 }
