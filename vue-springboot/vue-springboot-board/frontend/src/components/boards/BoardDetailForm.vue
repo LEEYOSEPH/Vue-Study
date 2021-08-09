@@ -2,14 +2,14 @@
   <div class="contents">
     <h1 class="page-header">GE SI PAN</h1>
     <div class="form-wrapper">
-      <div>
+      <div class="post-title">
         <h3>{{ board_title }}</h3>
-        <div>
+        <div class="post-contents">
           {{ board_content }}
         </div>
       </div>
-      <div>
-        `조회수 : {{ board_cnt }}`
+      <div class="post-time">
+        조회수 : {{ board_cnt }} |
         {{ board_updateDt | formatDate }}
       </div>
     </div>

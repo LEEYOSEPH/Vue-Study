@@ -50,4 +50,10 @@ public class BoardServiceImpl implements BoardService {
 		return rst;
 	}
 
+	@Override
+	public BoardDTO getModifyBoard(BoardDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.getModifyBoard(params);
+	}
+
 }

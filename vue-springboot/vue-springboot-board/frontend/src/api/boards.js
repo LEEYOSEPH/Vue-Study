@@ -25,4 +25,16 @@ function deleteBoard(boardData) {
   return axios.post(url, boardData);
 }
 
-export { createBoard, fetchBoard, getBoardDetail, fetchMyBoard, deleteBoard };
+function getBoardModify(boardData) {
+  const url = "/api/board/modifyBoard";
+  return axios.post(url, boardData);
+}
+
+export {
+  createBoard,
+  fetchBoard,
+  getBoardDetail,
+  fetchMyBoard,
+  deleteBoard,
+  getBoardModify,
+};

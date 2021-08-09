@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -70,7 +71,8 @@ public class BoardController {
 		
 		return boardList;
 	}
-	
+
+	/* 게시글 삭제 */
 	@PostMapping("/deleteBoard")
 	@ResponseBody
 	public void deleteBoard( @RequestBody BoardDTO params) throws Exception{
@@ -78,5 +80,17 @@ public class BoardController {
 		int rst = boardService.deleteBoard(params);
 		
 		System.out.println(rst);
+	}
+
+	/* 게시글 수정 페이지 */
+	@PostMapping("/modifyBoard")
+	@ResponseBody
+	public BoardDTO modifyBoard (@RequestBody BoardDTO params) throws Exception {
+		
+		System.out.println(params);
+		
+		params = boardService.getModifyBoard(params);
+		
+		return params;
 	}
 }

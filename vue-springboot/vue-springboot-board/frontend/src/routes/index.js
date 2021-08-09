@@ -44,6 +44,11 @@ export default new VueRouter({
       component: () => import("../views/MyBoardPage.vue"),
     },
     {
+      /* 게시글 수정페이지 이동 */
+      path: "/board/:user_no/:board_no",
+      component: () => import("../views/BoardModifyPage.vue"),
+    },
+    {
       /* 경로가 올바르지 않으면 오류 페이지이동 */
       path: "*",
       component: () => import("../views/NotFoundPage.vue"),
