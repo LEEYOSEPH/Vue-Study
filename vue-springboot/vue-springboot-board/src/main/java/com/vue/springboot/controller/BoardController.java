@@ -139,4 +139,13 @@ public class BoardController {
 		System.out.println(rst);
 	}
 	
+	/* 게시글 높은 조회수 순 */
+	@GetMapping("/MostViewedBoard")
+	@ResponseBody
+	public List<BoardDTO> getMostViewedBoard() throws Exception {
+		
+		List<BoardDTO> boardList = boardService.getMostViewedBoard();
+		
+		return  boardList;
+	}
 }

@@ -21,4 +21,6 @@ public interface BoardService {
 	public int editBoard(BoardDTO params) throws Exception;
 	
 	public int updateBoardCnt(BoardDTO params) throws Exception;
+	
+	public List<BoardDTO> getMostViewedBoard() throws Exception;
 }

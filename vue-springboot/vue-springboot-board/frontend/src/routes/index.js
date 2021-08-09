@@ -49,6 +49,11 @@ export default new VueRouter({
       component: () => import("../views/BoardModifyPage.vue"),
     },
     {
+      /* 조회수 높은순 페이지 */
+      path: "/viewed",
+      component: () => import("../views/MostViewedBoardpage.vue"),
+    },
+    {
       /* 경로가 올바르지 않으면 오류 페이지이동 */
       path: "*",
       component: () => import("../views/NotFoundPage.vue"),

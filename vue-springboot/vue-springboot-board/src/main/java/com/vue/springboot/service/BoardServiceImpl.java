@@ -74,4 +74,10 @@ public class BoardServiceImpl implements BoardService {
 		return rst;
 	}
 
+	@Override
+	public List<BoardDTO> getMostViewedBoard() throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.getMostViewedBoard();
+	}
+
 }

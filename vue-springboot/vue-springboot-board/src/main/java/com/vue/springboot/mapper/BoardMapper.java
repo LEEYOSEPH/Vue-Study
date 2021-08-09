@@ -24,4 +24,7 @@ public interface BoardMapper {
 	public int editBoard(BoardDTO parmas) throws Exception;
 	
 	public int updateBoardCnt(BoardDTO parmas) throws Exception;
+	
+	public List<BoardDTO> getMostViewedBoard() throws Exception;
+	
 }

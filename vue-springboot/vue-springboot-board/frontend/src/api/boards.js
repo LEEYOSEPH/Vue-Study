@@ -42,6 +42,12 @@ function editBoard(boardData) {
   return axios.put(url, boardData);
 }
 
+/* 게시글 조회수 순 */
+function fetchMostViewedBoard() {
+  const url = "/api/board/MostViewedBoard";
+  return axios.get(url);
+}
+
 export {
   createBoard,
   fetchBoard,
@@ -50,4 +56,5 @@ export {
   deleteBoard,
   getBoardModify,
   editBoard,
+  fetchMostViewedBoard,
 };
