@@ -55,7 +55,7 @@ public class BoardController {
 	@ResponseBody
 	public BoardDTO getBoardDetail(@RequestBody BoardDTO params) throws Exception{
 		
-		System.out.println("게시물 상세조회" + params);
+		/* 조회수 증가 */
 		int rst = boardService.updateBoardCnt(params);
 		if(rst > 0) {
 			params = boardService.getBoardDetail(params);

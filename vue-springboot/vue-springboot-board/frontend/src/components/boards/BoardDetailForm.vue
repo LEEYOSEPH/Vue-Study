@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { getBoardDetail, updateBoardCnt } from "../../api/boards";
+import { getBoardDetail } from "../../api/boards";
 
 export default {
   data() {

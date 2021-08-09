@@ -42,12 +42,6 @@ function editBoard(boardData) {
   return axios.put(url, boardData);
 }
 
-/* 조회수 증가 */
-function updateBoardCnt(boardData) {
-  const url = "/api/board/updateBoardCnt";
-  return axios.put(url, boardData);
-}
-
 export {
   createBoard,
   fetchBoard,
@@ -56,5 +50,4 @@ export {
   deleteBoard,
   getBoardModify,
   editBoard,
-  updateBoardCnt,
 };
