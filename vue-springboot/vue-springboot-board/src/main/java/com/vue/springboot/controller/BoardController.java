@@ -4,8 +4,11 @@ package com.vue.springboot.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -53,12 +56,42 @@ public class BoardController {
 	/* 게시물 상세 조회 */
 	@PostMapping("/getBoardDetail")
 	@ResponseBody
-	public BoardDTO getBoardDetail(@RequestBody BoardDTO params) throws Exception{
+	public BoardDTO getBoardDetail(@RequestBody BoardDTO params, HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
-		/* 조회수 증가 */
-		int rst = boardService.updateBoardCnt(params);
-		if(rst > 0) {
-			params = boardService.getBoardDetail(params);
+		Cookie[] cookies = request.getCookies();
+		
+		Cookie viewCookie = null;
+		
+		if(cookies != null && cookies.length > 0) {
+			for(int i = 0; i< cookies.length; i++) {
+				//Cookie의 namedl cookie + params.getBoardNo와 일치하는 쿠키를 viewCookie에 넣어줌
+				if(cookies[i].getName().equals("cookie"+params.getBoard_no())) {
+					System.out.println("처음 쿠키가 생성한 뒤 들어옴.");
+					viewCookie = cookies[i];
+					System.out.println(viewCookie);
+				}
+			}
+		}
+		if(params != null) {
+			if(viewCookie == null) {
+				System.out.println("쿠키 없음");
+				
+				//쿠키 생성(이름, 값)
+				Cookie newCookie = new Cookie("cookie"+params.getBoard_no(),"|"+params.getBoard_no()+"|");
+				newCookie.setMaxAge(60*30);
+				
+				response.addCookie(newCookie);
+				/* 조회수 증가 */
+				int rst = boardService.updateBoardCnt(params);
+				if(rst > 0) {
+					params = boardService.getBoardDetail(params);
+				}
+			}else {
+				//쿠키값이 있으므로 조회수 증가 하지 않는다
+				String value = viewCookie.getValue();
+				System.out.println(value);
+				params = boardService.getBoardDetail(params);
+			}
 		}
 		return params;
 	}
