@@ -93,4 +93,14 @@ public class BoardController {
 		
 		return params;
 	}
+	
+	/* 게시글 수정 */
+	@PutMapping("/editBoard")
+	@ResponseBody
+	public void editBoard(@RequestBody BoardDTO params) throws Exception {
+		
+		int rst = boardService.editBoard(params);
+		
+		System.out.println(rst);
+	}
 }

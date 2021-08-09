@@ -30,6 +30,11 @@ function getBoardModify(boardData) {
   return axios.post(url, boardData);
 }
 
+function editBoard(boardData) {
+  const url = "/api/board/editBoard";
+  return axios.put(url, boardData);
+}
+
 export {
   createBoard,
   fetchBoard,
@@ -37,4 +42,5 @@ export {
   fetchMyBoard,
   deleteBoard,
   getBoardModify,
+  editBoard,
 };

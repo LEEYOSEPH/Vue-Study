@@ -56,4 +56,13 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.getModifyBoard(params);
 	}
 
+	@Override
+	public int editBoard(BoardDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		
+		int rst = 0;
+		rst = boardMapper.editBoard(params);
+		return rst;
+	}
+
 }

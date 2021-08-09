@@ -20,5 +20,7 @@ public interface BoardMapper {
 	public int deleteBoard(BoardDTO params) throws Exception;
 	
 	public BoardDTO getModifyBoard(BoardDTO params) throws Exception;
+	
+	public int editBoard(BoardDTO parmas) throws Exception;
 
 }
