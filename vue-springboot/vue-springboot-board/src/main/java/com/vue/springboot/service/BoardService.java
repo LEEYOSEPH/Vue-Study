@@ -11,4 +11,8 @@ public interface BoardService {
 	public List<BoardDTO> getBoardList() throws Exception;
 	
 	public BoardDTO getBoardDetail(BoardDTO params) throws Exception;
+	
+	public List<BoardDTO> getMyBoard(BoardDTO params) throws Exception;
+	
+	public int deleteBoard(BoardDTO params) throws Exception;
 }

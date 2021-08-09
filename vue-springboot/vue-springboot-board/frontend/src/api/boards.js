@@ -15,4 +15,14 @@ function getBoardDetail(boardData) {
   return axios.post(url, boardData);
 }
 
-export { createBoard, fetchBoard, getBoardDetail };
+function fetchMyBoard(boardData) {
+  const url = "/api/board/getMyBoard";
+  return axios.post(url, boardData);
+}
+
+function deleteBoard(boardData) {
+  const url = "/api/board/deleteBoard";
+  return axios.post(url, boardData);
+}
+
+export { createBoard, fetchBoard, getBoardDetail, fetchMyBoard, deleteBoard };

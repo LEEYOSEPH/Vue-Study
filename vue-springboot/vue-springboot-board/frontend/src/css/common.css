@@ -185,3 +185,31 @@ a:hover {
   background: #fe9616;
   border: 3px solid white;
 }
+.modifiy-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  position: fixed;
+  right: 80px;
+  bottom: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: white;
+  -webkit-box-shadow: 0px 5px 10px rgb(0 0 0 / 10%);
+  box-shadow: 0px 5px 10px rgb(0 0 0 / 10%);
+  background: #fe9616;
+  border: 3px solid white;
+}
+.ion-md-create {
+  color: #456155;
+}
+.ion-md-trash {
+  color: #456155;
+}

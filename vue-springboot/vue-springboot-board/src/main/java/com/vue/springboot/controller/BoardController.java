@@ -5,6 +5,7 @@ package com.vue.springboot.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -55,9 +56,27 @@ public class BoardController {
 		
 		params = boardService.getBoardDetail(params);
 		
-		System.out.println(params+"디테일 확인");	
 		
 		return params;
 	}
 	
+	/* 나의 게시물 조회 */
+	@PostMapping("/getMyBoard")
+	@ResponseBody
+	public List<BoardDTO> getMyBoard(@RequestBody BoardDTO params) throws Exception {
+		
+		
+		List<BoardDTO> boardList = boardService.getMyBoard(params);
+		
+		return boardList;
+	}
+	
+	@PostMapping("/deleteBoard")
+	@ResponseBody
+	public void deleteBoard( @RequestBody BoardDTO params) throws Exception{
+		
+		int rst = boardService.deleteBoard(params);
+		
+		System.out.println(rst);
+	}
 }

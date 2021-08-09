@@ -35,4 +35,19 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.getBoardDetail(params);
 	}
 
+	@Override
+	public List<BoardDTO> getMyBoard(BoardDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.getMyBoard(params);
+	}
+
+	@Override
+	public int deleteBoard(BoardDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		int rst = 0;
+		rst = boardMapper.deleteBoard(params);
+		
+		return rst;
+	}
+
 }

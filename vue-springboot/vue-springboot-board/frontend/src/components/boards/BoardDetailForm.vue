@@ -13,12 +13,6 @@
         {{ board_updateDt | formatDate }}
       </div>
     </div>
-    <div class="create-button">
-      <i class="ion-md-add"></i>
-    </div>
-    <div class="create-button">
-      <i class="icon ion-md-trash"></i>
-    </div>
   </div>
 </template>
 
