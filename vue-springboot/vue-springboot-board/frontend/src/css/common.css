@@ -213,3 +213,10 @@ a:hover {
 .ion-md-trash {
   color: #456155;
 }
+.board-info {
+  position: absolute;
+  bottom: 4px;
+  font-size: 14px;
+  color: #9e9e9e;
+  left: 15px;
+}

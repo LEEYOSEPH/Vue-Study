@@ -65,4 +65,13 @@ public class BoardServiceImpl implements BoardService {
 		return rst;
 	}
 
+	@Override
+	public int updateBoardCnt(BoardDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		int rst = 0 ;
+		
+		rst = boardMapper.updateBoardCnt(params);
+		return rst;
+	}
+
 }

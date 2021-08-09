@@ -55,9 +55,11 @@ public class BoardController {
 	@ResponseBody
 	public BoardDTO getBoardDetail(@RequestBody BoardDTO params) throws Exception{
 		
-		params = boardService.getBoardDetail(params);
-		
-		
+		System.out.println("게시물 상세조회" + params);
+		int rst = boardService.updateBoardCnt(params);
+		if(rst > 0) {
+			params = boardService.getBoardDetail(params);
+		}
 		return params;
 	}
 	
@@ -103,4 +105,5 @@ public class BoardController {
 		
 		System.out.println(rst);
 	}
+	
 }

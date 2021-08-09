@@ -37,6 +37,7 @@ export default {
       this.$store.commit("clearUserName");
       deleteCookie("user_no");
       deleteCookie("user_name");
+      this.$router.push("/");
     },
   },
 };

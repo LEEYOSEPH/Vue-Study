@@ -6,6 +6,7 @@
     <div class="board-contents">
       {{ boardItem.board_content }}
     </div>
+    <div class="board-info">조회 : {{ boardItem.board_cnt }}</div>
     <div class="board-time">
       {{ boardItem.board_updateDt | formatDate }}
     </div>

@@ -19,4 +19,6 @@ public interface BoardService {
 	public BoardDTO getModifyBoard(BoardDTO params) throws Exception;
 	
 	public int editBoard(BoardDTO params) throws Exception;
+	
+	public int updateBoardCnt(BoardDTO params) throws Exception;
 }

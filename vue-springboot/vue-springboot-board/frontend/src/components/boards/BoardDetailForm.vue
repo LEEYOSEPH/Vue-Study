@@ -2,14 +2,14 @@
   <div class="contents">
     <h1 class="page-header">GE SI PAN</h1>
     <div class="form-wrapper">
-      <div class="post-title">
+      <div>
         <h3>{{ board_title }}</h3>
-        <div class="post-contents">
-          {{ board_content }}
-        </div>
       </div>
-      <div class="post-time">
-        조회수 : {{ board_cnt }} |
+      <div>
+        {{ board_content }}
+      </div>
+      <div>조회수 : {{ board_cnt }}</div>
+      <div>
         {{ board_updateDt | formatDate }}
       </div>
     </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { getBoardDetail } from "../../api/boards";
+import { getBoardDetail, updateBoardCnt } from "../../api/boards";
 
 export default {
   data() {

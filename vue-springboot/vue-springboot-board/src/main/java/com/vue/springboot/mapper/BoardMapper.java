@@ -22,5 +22,6 @@ public interface BoardMapper {
 	public BoardDTO getModifyBoard(BoardDTO params) throws Exception;
 	
 	public int editBoard(BoardDTO parmas) throws Exception;
-
+	
+	public int updateBoardCnt(BoardDTO parmas) throws Exception;
 }
