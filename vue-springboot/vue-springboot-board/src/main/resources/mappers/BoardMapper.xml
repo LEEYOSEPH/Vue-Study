@@ -11,6 +11,7 @@
 		<result property="board_cnt" column="board_cnt" />
 		<result property="user_no" column="user_no" />
 		<result property="board_image" column="board_image" />
+		<result property="likes_cnt" column="likes_cnt" />
 	</resultMap>
 	
 	<insert id="insertBoard">
@@ -23,6 +24,7 @@
 			, 0
 			,#{user_no}
 			,#{board_image}
+			,#{likes_cnt}
 		)
 	</insert>
 	

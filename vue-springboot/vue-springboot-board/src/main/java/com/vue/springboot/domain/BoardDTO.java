@@ -27,4 +27,6 @@ public class BoardDTO {
 	
 	private int user_no;
 	
+	private int likes_cnt;
+	
 }

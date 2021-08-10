@@ -6,7 +6,7 @@
     <div class="board-contents" v-on:click="getBoardDetail">
       {{ boardItem.board_content }}
     </div>
-    <div class="board-info">조회 : {{ boardItem.board_cnt }}</div>
+    <div class="board-info">{{ boardItem.board_cnt }} Views</div>
     <div class="board-time">
       {{ boardItem.board_updateDt | formatDate }}
       <i class="icon ion-md-create" @click="routeEditPage"></i>

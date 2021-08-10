@@ -8,8 +8,9 @@
       <div>
         {{ board_content }}
       </div>
-      <div>조회수 : {{ board_cnt }}</div>
+      <div>{{ board_cnt }} Views | Likes</div>
       <div>
+        <i class="icon ion-md-heart" @click="likes"></i>
         {{ board_updateDt | formatDate }}
       </div>
     </div>
@@ -31,6 +32,7 @@ export default {
     };
   },
   methods: {
+    /* 게시판 호출 */
     async fetchBoardDetail() {
       const boardData = {
         board_no: this.board_no,
@@ -44,6 +46,14 @@ export default {
         this.user_no = data.user_no;
       } catch (error) {
         console.log(error);
+      }
+    },
+    /* 좋아요 여부 확인 */
+    likes() {
+      if (this.$store.state.user_no === "") {
+        alert("로그인이 필요 합니다.");
+      } else {
+        console.log("로그인 확인");
       }
     },
   },
