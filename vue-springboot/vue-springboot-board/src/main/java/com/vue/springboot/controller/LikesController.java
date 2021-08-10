@@ -67,8 +67,6 @@ public class LikesController {
 		LikesDTO data = params;
 		params = likesService.likesCheck(params);
 		
-		System.out.println(params + "DB값 확인");
-		System.out.println(data+ "이건...??");
 		if(params == null) {
 			
 			int rst = likesService.insertLikes(data);

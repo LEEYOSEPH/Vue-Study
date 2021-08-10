@@ -32,4 +32,6 @@ public interface BoardMapper {
 	
 	public int updateUnLikesCnt(LikesDTO params) throws Exception;
 	
+	public List<BoardDTO> getmostLikesBoard() throws Exception;
+	
 }

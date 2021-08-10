@@ -25,6 +25,8 @@ public interface BoardService {
 	
 	public List<BoardDTO> getMostViewedBoard() throws Exception;
 	
+	public List<BoardDTO> getmostLikesBoard() throws Exception;
+	
 	public int updateLikesCnt(LikesDTO params) throws Exception;
 	
 	public int updateUnLikesCnt(LikesDTO params) throws Exception;

@@ -148,4 +148,14 @@ public class BoardController {
 		
 		return  boardList;
 	}
+	
+	/* 게시글 좋아요 순 */
+	@GetMapping("/mostLikesBoard")
+	@ResponseBody
+	public List<BoardDTO> getmostLikesBoard() throws Exception {
+		
+		List<BoardDTO> boardList = boardService.getmostLikesBoard();
+		
+		return boardList;
+	}
 }

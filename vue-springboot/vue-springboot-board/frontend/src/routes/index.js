@@ -54,6 +54,11 @@ export default new VueRouter({
       component: () => import("../views/MostViewedBoardpage.vue"),
     },
     {
+      /* 좋아요 많은순 페이지 */
+      path: "/likes",
+      component: () => import("../views/MostLikesBoardPage.vue"),
+    },
+    {
       /* 경로가 올바르지 않으면 오류 페이지이동 */
       path: "*",
       component: () => import("../views/NotFoundPage.vue"),

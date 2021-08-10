@@ -1,44 +1,39 @@
 <template>
   <div>
     <div class="main list-container contents">
-      <h1 class="page-header">Most Viewed Board List</h1>
+      <h1 class="page-header">Most Likes Board List</h1>
       <app-navi></app-navi>
       <ul>
-        <board-list-item
+        <most-likes-list-item
           v-for="boardItem in boardItems"
           :key="boardItem.board_no"
           :boardItem="boardItem"
           @refresh="fetchData"
-        ></board-list-item>
+        ></most-likes-list-item>
       </ul>
+      <router-link to="/add" class="create-button">
+        <i class="ion-md-add"></i>
+      </router-link>
     </div>
-    <router-link to="/add" class="create-button" v-if="isLogin">
-      <i class="icon ion-md-create"></i>
-    </router-link>
   </div>
 </template>
 
 <script>
-import BoardListItem from "../components/boards/BoardListItem.vue";
-import { fetchMostViewedBoard } from "../api/boards";
+import MostLikesListItem from "../components/boards/MostLikesListItem.vue";
 import AppNavi from "../components/common/AppNavi.vue";
-
+import { fetchMostLikesBoard } from "../api/boards";
 export default {
-  components: { BoardListItem, AppNavi },
+  components: { MostLikesListItem, AppNavi },
   data() {
     return {
       boardItems: [],
     };
   },
-  computed: {
-    isLogin() {
-      return this.$store.getters.isLogin;
-    },
-  },
   methods: {
     async fetchData() {
       try {
-        const { data } = await fetchMostViewedBoard();
+        const { data } = await fetchMostLikesBoard();
+        console.log(data);
         this.boardItems = data;
       } catch (error) {
         console.log(error);

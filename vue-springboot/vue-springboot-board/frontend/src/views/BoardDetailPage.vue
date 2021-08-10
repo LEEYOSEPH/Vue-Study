@@ -1,11 +1,15 @@
 <template>
-  <board-detail-form></board-detail-form>
+  <div>
+    <board-detail-form></board-detail-form>
+    <reply-page></reply-page>
+  </div>
 </template>
 
 <script>
 import BoardDetailForm from "../components/boards/BoardDetailForm.vue";
+import ReplyPage from "./ReplyPage.vue";
 export default {
-  components: { BoardDetailForm },
+  components: { BoardDetailForm, ReplyPage },
 };
 </script>
 

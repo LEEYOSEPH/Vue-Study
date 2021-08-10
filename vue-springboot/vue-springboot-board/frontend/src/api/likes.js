@@ -5,4 +5,5 @@ function likesCheck(likesData) {
   const url = "/api/likes/likesCheck";
   return axios.post(url, likesData);
 }
+
 export { likesCheck };

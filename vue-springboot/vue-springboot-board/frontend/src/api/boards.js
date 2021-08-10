@@ -47,6 +47,11 @@ function fetchMostViewedBoard() {
   const url = "/api/board/MostViewedBoard";
   return axios.get(url);
 }
+/* 게시글 좋아요 순 */
+function fetchMostLikesBoard() {
+  const url = "/api/board/mostLikesBoard";
+  return axios.get(url);
+}
 
 export {
   createBoard,
@@ -57,4 +62,5 @@ export {
   getBoardModify,
   editBoard,
   fetchMostViewedBoard,
+  fetchMostLikesBoard,
 };

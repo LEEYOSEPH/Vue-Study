@@ -99,4 +99,10 @@ public class BoardServiceImpl implements BoardService {
 		return rst;
 	}
 
+	@Override
+	public List<BoardDTO> getmostLikesBoard() throws Exception {
+		// TODO Auto-generated method stub
+		return boardMapper.getmostLikesBoard();
+	}
+
 }
