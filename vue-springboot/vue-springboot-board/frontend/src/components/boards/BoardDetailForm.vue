@@ -19,7 +19,7 @@
 
 <script>
 import { getBoardDetail } from "../../api/boards";
-import { insertLikes, updateLikes, likesCheck } from "../../api/likes";
+import { likesCheck } from "../../api/likes";
 
 export default {
   data() {
@@ -58,44 +58,18 @@ export default {
       }
     },
     /* 좋아요 추가 */
-    async likes() {
+    async likesCheck() {
       if (this.$store.state.user_no === "") {
         alert("로그인이 필요 합니다.");
       } else {
-        console.log("로그인 확인");
+        /* 좋아요 체크 */
         const likesData = {
           board_no: this.board_no,
-          user_no: this.user_no,
+          user_no: this.$store.state.user_no,
         };
-        try {
-          await insertLikes(likesData);
-          this.fetchBoardDetail();
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    },
-    /* 좋아요 취소 */
-    async unLikes() {
-      const likesData = {
-        board_no: this.board_no,
-        user_no: this.user_no,
-      };
-      try {
-        await updateLikes(likesData);
+        await likesCheck(likesData);
         this.fetchBoardDetail();
-      } catch (error) {
-        console.log(error);
       }
-    },
-    /* 좋아요 체크 */
-    async likesCheck() {
-      const likesData = {
-        board_no: this.board_no,
-        user_no: this.$store.state.user_no,
-      };
-      await likesCheck(likesData);
-      this.fetchBoardDetail();
     },
   },
   created() {
