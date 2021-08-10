@@ -8,9 +8,9 @@
       <div>
         {{ board_content }}
       </div>
-      <div>{{ board_cnt }} Views | Likes</div>
+      <div>{{ board_cnt }} Views | {{ likes_cnt }}Likes</div>
       <div>
-        <i class="icon ion-md-heart" @click="likes"></i>
+        <i class="icon ion-md-heart" @click="likesCheck"></i>
         {{ board_updateDt | formatDate }}
       </div>
     </div>
@@ -19,6 +19,7 @@
 
 <script>
 import { getBoardDetail } from "../../api/boards";
+import { insertLikes, updateLikes, likesCheck } from "../../api/likes";
 
 export default {
   data() {
@@ -29,7 +30,14 @@ export default {
       board_cnt: "",
       user_no: "",
       board_no: this.$store.state.board_no,
+      likes_cnt: "",
+      likes_check: 0,
     };
+  },
+  computed: {
+    isLikes() {
+      return this.likes_check;
+    },
   },
   methods: {
     /* 게시판 호출 */
@@ -44,17 +52,50 @@ export default {
         this.board_updateDt = data.board_updateDt;
         this.board_cnt = data.board_cnt;
         this.user_no = data.user_no;
+        this.likes_cnt = data.likes_cnt;
       } catch (error) {
         console.log(error);
       }
     },
-    /* 좋아요 여부 확인 */
-    likes() {
+    /* 좋아요 추가 */
+    async likes() {
       if (this.$store.state.user_no === "") {
         alert("로그인이 필요 합니다.");
       } else {
         console.log("로그인 확인");
+        const likesData = {
+          board_no: this.board_no,
+          user_no: this.user_no,
+        };
+        try {
+          await insertLikes(likesData);
+          this.fetchBoardDetail();
+        } catch (error) {
+          console.log(error);
+        }
       }
+    },
+    /* 좋아요 취소 */
+    async unLikes() {
+      const likesData = {
+        board_no: this.board_no,
+        user_no: this.user_no,
+      };
+      try {
+        await updateLikes(likesData);
+        this.fetchBoardDetail();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    /* 좋아요 체크 */
+    async likesCheck() {
+      const likesData = {
+        board_no: this.board_no,
+        user_no: this.$store.state.user_no,
+      };
+      await likesCheck(likesData);
+      this.fetchBoardDetail();
     },
   },
   created() {
@@ -63,4 +104,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.ion-md-heart {
+  color: red;
+}
+</style>

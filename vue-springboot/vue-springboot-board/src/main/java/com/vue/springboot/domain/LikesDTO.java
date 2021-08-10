@@ -13,8 +13,8 @@ public class LikesDTO {
 	
 	private int board_no;
 	
-	private int uesr_no;
+	private int user_no;
 	
-	private String likes_yn;
+	private int likes_check;
 
 }

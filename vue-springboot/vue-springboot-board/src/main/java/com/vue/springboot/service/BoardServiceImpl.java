@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.vue.springboot.domain.BoardDTO;
+import com.vue.springboot.domain.LikesDTO;
 import com.vue.springboot.mapper.BoardMapper;
 
 @Service
@@ -78,6 +79,24 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardDTO> getMostViewedBoard() throws Exception {
 		// TODO Auto-generated method stub
 		return boardMapper.getMostViewedBoard();
+	}
+
+	@Override
+	public int updateLikesCnt(LikesDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		int rst = 0 ;
+		
+		rst = boardMapper.updateLikesCnt(params);
+		return rst;
+	}
+
+	@Override
+	public int updateUnLikesCnt(LikesDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		int rst = 0;
+		
+		rst = boardMapper.updateUnLikesCnt(params);
+		return rst;
 	}
 
 }

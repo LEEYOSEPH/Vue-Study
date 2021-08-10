@@ -24,7 +24,7 @@
 			, 0
 			,#{user_no}
 			,#{board_image}
-			,#{likes_cnt}
+			,0
 		)
 	</insert>
 	
@@ -84,4 +84,22 @@
 		ORDER BY board_cnt DESC
 	</select>
 	
+	<update id="updateLikesCnt">
+		UPDATE BOARD B
+		INNER JOIN LIKES L ON B.board_no = L.board_no
+		SET B.likes_cnt = B.likes_cnt+1
+		WHERE L.board_no = #{board_no}
+		AND L.user_no = #{user_no}
+	</update>
+	
+	<update id="updateUnLikesCnt">
+		UPDATE BOARD B
+		INNER JOIN LIKES L ON B.board_no = L.board_no
+		SET B.likes_cnt = B.likes_cnt-1
+		WHERE L.board_no = #{board_no}
+		AND L.user_no = #{user_no}
+		AND L.likes_check = 0
+	</update>
+
+
 </mapper>

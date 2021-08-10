@@ -6,7 +6,9 @@
     <div class="board-contents">
       {{ boardItem.board_content }}
     </div>
-    <div class="board-info">{{ boardItem.board_cnt }} Views</div>
+    <div class="board-info">
+      {{ boardItem.board_cnt }} Views | {{ boardItem.likes_cnt }} Likes
+    </div>
     <div class="board-time">
       {{ boardItem.board_updateDt | formatDate }}
     </div>

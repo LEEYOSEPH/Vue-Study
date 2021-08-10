@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.vue.springboot.domain.BoardDTO;
+import com.vue.springboot.domain.LikesDTO;
 
 @Mapper
 public interface BoardMapper {
@@ -26,5 +27,9 @@ public interface BoardMapper {
 	public int updateBoardCnt(BoardDTO parmas) throws Exception;
 	
 	public List<BoardDTO> getMostViewedBoard() throws Exception;
+	
+	public int updateLikesCnt(LikesDTO params) throws Exception;
+	
+	public int updateUnLikesCnt(LikesDTO params) throws Exception;
 	
 }

@@ -26,8 +26,6 @@ export default {
   /* 화면 데이터 표현을 변경 시키기 위해서 */
   computed: {
     isUserLogin() {
-      // eslint-disable-next-line no-console
-      console.log(this.$store.getters.isLogin);
       return this.$store.getters.isLogin;
     },
   },

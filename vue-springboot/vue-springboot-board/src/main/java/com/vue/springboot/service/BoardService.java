@@ -3,6 +3,7 @@ package com.vue.springboot.service;
 import java.util.List;
 
 import com.vue.springboot.domain.BoardDTO;
+import com.vue.springboot.domain.LikesDTO;
 
 public interface BoardService {
 
@@ -23,4 +24,8 @@ public interface BoardService {
 	public int updateBoardCnt(BoardDTO params) throws Exception;
 	
 	public List<BoardDTO> getMostViewedBoard() throws Exception;
+	
+	public int updateLikesCnt(LikesDTO params) throws Exception;
+	
+	public int updateUnLikesCnt(LikesDTO params) throws Exception;
 }
