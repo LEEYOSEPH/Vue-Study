@@ -13,4 +13,9 @@ public interface ReplyService {
 	public int deleteReply(ReplyDTO params) throws Exception;
 	
 	public int editReply(ReplyDTO params) throws Exception;
+	
+	public int updateReplyCnt(ReplyDTO params) throws Exception;
+	
+	public int deleteReplyCnt(ReplyDTO params) throws Exception;
+	
  }

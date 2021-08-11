@@ -39,6 +39,11 @@ export default {
       board_no: "",
     };
   },
+  computed: {
+    isContentsValid() {
+      return this.board_content.length <= 200;
+    },
+  },
   methods: {
     async getBoardModify() {
       const boardData = {

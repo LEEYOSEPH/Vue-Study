@@ -25,4 +25,6 @@ public class ReplyDTO {
 	
 	private Date reply_updatedt;
 	
+	private int reply_check;
+	
 }

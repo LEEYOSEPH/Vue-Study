@@ -28,7 +28,12 @@ public class ReplyController {
 	public void insertreply(@RequestBody ReplyDTO params) throws Exception {
 		
 		int rst = replyService.insertreply(params);
-		System.out.println("등록결과"+rst);
+		
+		if(rst > 0) {
+			int result = replyService.updateReplyCnt(params);
+			System.out.println("등록결과"+result);
+		}
+		
 	}
 	
 	/* 댓글 전체 조회 */
@@ -49,7 +54,13 @@ public class ReplyController {
 		
 		int rst = replyService.deleteReply(params);
 		
-		System.out.println("삭제 결과"+rst);
+		if(rst > 0) {
+			System.out.println(params);
+			int result = replyService.deleteReplyCnt(params);
+			System.out.println("삭제 결과"+result);
+		}
+		
+		
 	}
 	
 	/* 게시글 수정 */

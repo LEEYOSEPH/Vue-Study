@@ -29,4 +29,6 @@ public class BoardDTO {
 	
 	private int likes_cnt;
 	
+	private int reply_cnt;
+	
 }

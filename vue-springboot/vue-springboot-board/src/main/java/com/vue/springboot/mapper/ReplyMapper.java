@@ -16,5 +16,7 @@ public interface ReplyMapper {
 	public int deleteReply(ReplyDTO params);
 	
 	public int editReply(ReplyDTO params);
+	
+	
 
 }

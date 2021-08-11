@@ -8,7 +8,9 @@
       <div>
         {{ board_content }}
       </div>
-      <div>{{ board_cnt }} Views | {{ likes_cnt }}Likes</div>
+      <div>
+        {{ board_cnt }} Views | {{ likes_cnt }}Likes | {{ reply_cnt }} Coments
+      </div>
       <div>
         <i class="icon ion-md-heart" @click="likesCheck"></i>
         {{ board_updateDt | formatDate }}
@@ -32,6 +34,7 @@ export default {
       board_no: this.$store.state.board_no,
       likes_cnt: "",
       likes_check: 0,
+      reply_cnt: "",
     };
   },
   computed: {
@@ -53,6 +56,7 @@ export default {
         this.board_cnt = data.board_cnt;
         this.user_no = data.user_no;
         this.likes_cnt = data.likes_cnt;
+        this.reply_cnt = data.reply_cnt;
       } catch (error) {
         console.log(error);
       }

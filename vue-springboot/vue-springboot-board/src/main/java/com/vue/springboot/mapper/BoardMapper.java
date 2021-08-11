@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.vue.springboot.domain.BoardDTO;
 import com.vue.springboot.domain.LikesDTO;
+import com.vue.springboot.domain.ReplyDTO;
 
 @Mapper
 public interface BoardMapper {
@@ -33,5 +34,11 @@ public interface BoardMapper {
 	public int updateUnLikesCnt(LikesDTO params) throws Exception;
 	
 	public List<BoardDTO> getmostLikesBoard() throws Exception;
+	
+	public int updateReplyCnt(ReplyDTO params);
+	
+	public int deleteReplyCnt(ReplyDTO params);
+	
+	
 	
 }

@@ -10,6 +10,7 @@
 		<result property="user_name" column="user_name" />
 		<result property="reply_createdt" column="reply_createdt" />
 		<result property="reply_updatedt" column="reply_updatedt" />
+		<result property="reply_check" column="reply_check" />
 	</resultMap>
 
 	<insert id="insertreply">
@@ -21,6 +22,7 @@
 			,#{user_name}
 			,now()
 			,now()
+			,1
 		)
 	</insert>
 	
@@ -28,16 +30,17 @@
 		SELECT *
 		FROM REPLY
 		WHERE board_no = #{board_no}
+		AND reply_check=1
 		ORDER BY reply_createdt DESC
 	</select>
 	
-	<delete id="deleteReply">
-		DELETE 
-		FROM REPLY
+	<update id="deleteReply">
+		UPDATE  REPLY
+		SET reply_check = 0
 		WHERE board_no = #{board_no}
 		AND user_no = #{user_no}
 		AND reply_no = #{reply_no}
-	</delete>
+	</update>
 	
 	<update id="editReply">
 		UPDATE REPLY

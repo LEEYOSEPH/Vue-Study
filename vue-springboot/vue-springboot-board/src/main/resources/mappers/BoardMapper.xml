@@ -12,6 +12,7 @@
 		<result property="user_no" column="user_no" />
 		<result property="board_image" column="board_image" />
 		<result property="likes_cnt" column="likes_cnt" />
+		<result property="reply_cnt" column="reply_cnt" />
 	</resultMap>
 	
 	<insert id="insertBoard">
@@ -24,6 +25,7 @@
 			, 0
 			,#{user_no}
 			,#{board_image}
+			,0
 			,0
 		)
 	</insert>
@@ -106,6 +108,22 @@
 		FROM BOARD
 		ORDER BY likes_cnt DESC
 	</select>
-
+	
+	<update id="updateReplyCnt">
+		UPDATE BOARD B
+		INNER JOIN REPLY R ON B.board_no = R.board_no
+		SET B.reply_cnt = B.reply_cnt+1
+		WHERE R.board_no = #{board_no}
+		AND R.user_no = #{user_no}
+	</update>
+	
+	<update id="deleteReplyCnt">
+		UPDATE BOARD B
+		INNER JOIN REPLY R ON B.board_no = R.board_no
+		SET B.reply_cnt = B.reply_cnt -1
+		WHERE R.board_no = #{board_no}
+		AND R.user_no = #{user_no}
+		AND R.reply_check = 0
+	</update>
 
 </mapper>
