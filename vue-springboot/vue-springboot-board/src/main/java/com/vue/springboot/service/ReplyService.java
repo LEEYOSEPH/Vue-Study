@@ -10,4 +10,7 @@ public interface ReplyService {
 	
 	public List<ReplyDTO> fetchReply(ReplyDTO params) throws Exception;
 	
+	public int deleteReply(ReplyDTO params) throws Exception;
+	
+	public int editReply(ReplyDTO params) throws Exception;
  }

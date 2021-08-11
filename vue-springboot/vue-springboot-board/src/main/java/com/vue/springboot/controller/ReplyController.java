@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,9 +26,9 @@ public class ReplyController {
 	@PostMapping("/insertreply")
 	@ResponseBody
 	public void insertreply(@RequestBody ReplyDTO params) throws Exception {
-		System.out.println(params);
 		
-		replyService.insertreply(params);
+		int rst = replyService.insertreply(params);
+		System.out.println("등록결과"+rst);
 	}
 	
 	/* 댓글 전체 조회 */
@@ -37,9 +38,29 @@ public class ReplyController {
 		
 		List<ReplyDTO> replyList = replyService.fetchReply(params);
 		
-		System.out.println(replyList);
 		
 		return replyList;
+	}
+	
+	/* 댓글 삭제 */
+	@PostMapping("/deleteReply")
+	@ResponseBody
+	public void deleteReply(@RequestBody ReplyDTO params) throws Exception {
+		
+		int rst = replyService.deleteReply(params);
+		
+		System.out.println("삭제 결과"+rst);
+	}
+	
+	/* 게시글 수정 */
+	@PutMapping("/editReply")
+	@ResponseBody
+	public void editReply(@RequestBody ReplyDTO params) throws Exception {
+		System.out.println(params);
+		
+		int rst = replyService.editReply(params);
+		
+		System.out.println("수정 결좌" + rst);
 	}
 
 }

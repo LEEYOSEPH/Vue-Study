@@ -12,5 +12,9 @@ public interface ReplyMapper {
 	public int insertreply(ReplyDTO params);
 	
 	public List<ReplyDTO> fetchReply(ReplyDTO params);
+	
+	public int deleteReply(ReplyDTO params);
+	
+	public int editReply(ReplyDTO params);
 
 }

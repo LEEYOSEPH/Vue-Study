@@ -1,5 +1,5 @@
 <template>
-  <li v-if="isUserLogin">
+  <li>
     <form class="form" @submit.prevent="submitForm">
       <div>
         <textarea
@@ -9,28 +9,29 @@
           rows="5"
           v-model="reply_content"
         ></textarea>
-        <button type="submit" class="btn">등록</button>
+        <button type="submit" class="btn">수정</button>
       </div>
     </form>
-  </li>
-  <li v-else>
-    <span>
-      <router-link to="/login"><strong>로그인</strong></router-link> 을 하시면
-      댓글을 등록 할 수 있습니다.
-    </span>
   </li>
 </template>
 
 <script>
-import { insertReply } from "../../api/reply";
+import { editReply } from "../../api/reply";
 
 export default {
   data() {
     return {
       user_no: this.$store.state.user_no,
-      board_no: this.$store.state.board_no,
-      reply_content: "",
+      board_no: this.replyItem.board_no,
+      reply_content: this.replyItem.reply_content,
+      reply_no: this.replyItem.reply_no,
     };
+  },
+  props: {
+    replyItem: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     isUserLogin() {
@@ -45,9 +46,10 @@ export default {
           user_no: this.user_no,
           board_no: this.board_no,
           reply_content: this.reply_content,
+          reply_no: this.reply_no,
         };
         console.log(replyData);
-        await insertReply(replyData);
+        await editReply(replyData);
         this.reply_content = "";
         this.$emit("refresh");
       } catch (error) {

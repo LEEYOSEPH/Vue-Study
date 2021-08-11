@@ -2,15 +2,14 @@
   <div class="contents">
     <ul>
       <h3>댓글</h3>
-      <hr />
       <reply-likst-item
         v-for="replyItem in replyItems"
         :key="replyItem.reply_no"
         :replyItem="replyItem"
-        @refresch="fetchData"
+        @refresh="fetchData"
       ></reply-likst-item>
       <hr />
-      <reply-form></reply-form>
+      <reply-form @refresh="fetchData"></reply-form>
     </ul>
   </div>
 </template>

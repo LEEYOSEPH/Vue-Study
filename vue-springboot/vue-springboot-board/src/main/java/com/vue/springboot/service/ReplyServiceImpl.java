@@ -30,4 +30,22 @@ public class ReplyServiceImpl implements ReplyService {
 		return replyMapper.fetchReply(params);
 	}
 
+	@Override
+	public int deleteReply(ReplyDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		int rst = 0;
+		
+		rst = replyMapper.deleteReply(params);
+		return rst;
+	}
+
+	@Override
+	public int editReply(ReplyDTO params) throws Exception {
+		// TODO Auto-generated method stub
+		int rst =0;
+		
+		rst = replyMapper.editReply(params);
+		return rst;
+	}
+
 }
