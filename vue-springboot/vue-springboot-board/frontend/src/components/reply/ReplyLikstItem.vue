@@ -4,30 +4,34 @@
     <div>
       <span>{{ replyItem.user_name }}</span>
       {{ replyItem.reply_updatedt | formatDate }}
+      <a @click="isRereplyCheck">답글</a>
     </div>
     <div>{{ replyItem.reply_content }}</div>
     <div v-if="isLogin">
       <i class="icon ion-md-create" @click="editPage"></i>
       <i class="icon ion-md-trash" @click="deleteItem"></i>
       <edit-reply-form
-        v-if="isEdit === 1"
+        v-if="isEdit"
         :replyItem="replyItem"
         @refresh="refresh"
       ></edit-reply-form>
     </div>
+    <rereply-page v-if="isRereply"></rereply-page>
   </li>
 </template>
 
 <script>
 import { deleteReply } from "../../api/reply";
+import RereplyPage from "../../views/RereplyPage.vue";
 import EditReplyForm from "./EditReplyForm.vue";
 
 export default {
-  components: { EditReplyForm },
+  components: { EditReplyForm, RereplyPage },
   data() {
     return {
       user_no: this.replyItem.user_no,
-      edit_check: "",
+      edit_check: false,
+      rereply_check: false,
     };
   },
   props: {
@@ -42,6 +46,9 @@ export default {
     },
     isEdit() {
       return this.edit_check;
+    },
+    isRereply() {
+      return this.rereply_check;
     },
   },
   methods: {
@@ -61,11 +68,21 @@ export default {
       }
     },
     editPage() {
-      this.edit_check = 1;
+      if (!this.edit_check) {
+        this.edit_check = true;
+      } else {
+        this.edit_check = false;
+      }
     },
     refresh() {
-      this.edit_check = "";
-      this.$emit("refresh");
+      this.edit_check = false;
+    },
+    isRereplyCheck() {
+      if (!this.rereply_check) {
+        this.rereply_check = true;
+      } else {
+        this.rereply_check = false;
+      }
     },
   },
 };
