@@ -5,4 +5,9 @@ function insertReply(replyData) {
   return axios.post(url, replyData);
 }
 
-export { insertReply };
+function fetchReply(replyData) {
+  const url = "/api/reply/fetchReply";
+  return axios.post(url, replyData);
+}
+
+export { insertReply, fetchReply };

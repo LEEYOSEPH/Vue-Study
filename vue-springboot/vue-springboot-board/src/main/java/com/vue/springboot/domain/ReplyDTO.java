@@ -1,5 +1,7 @@
 package com.vue.springboot.domain;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,4 +20,9 @@ public class ReplyDTO {
 	private int user_no;
 	
 	private String user_name;
+	
+	private Date reply_createdt;
+	
+	private Date reply_updatedt;
+	
 }

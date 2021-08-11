@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vue.springboot.mapper.ReplyMapper">
+
+	<resultMap id="resultReply" type="com.vue.springboot.domain.ReplyDTO" >
+		<result property="reply_no" column="reply_no" />
+		<result property="reply_content" column="reply_content" />
+		<result property="board_no" column="board_no" />
+		<result property="user_no" column="user_no" />
+		<result property="user_name" column="user_name" />
+		<result property="reply_createdt" column="reply_createdt" />
+		<result property="reply_updatedt" column="reply_updatedt" />
+	</resultMap>
+
+	<insert id="insertreply">
+		INSERT INTO REPLY VALUES (
+			reply_no
+			,#{reply_content}
+			,#{board_no}
+			,#{user_no}
+			,#{user_name}
+			,now()
+			,now()
+		)
+	</insert>
+	
+	<select id="fetchReply" resultMap="resultReply">
+		SELECT *
+		FROM REPLY
+		WHERE board_no = #{board_no}
+		ORDER BY reply_createdt DESC
+	</select>
+
+
+</mapper>
