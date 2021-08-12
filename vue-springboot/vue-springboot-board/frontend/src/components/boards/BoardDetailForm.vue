@@ -5,6 +5,7 @@
       <div>
         <h3>{{ board_title }}</h3>
       </div>
+      <small>{{ board_updateDt | formatDate }}</small>
       <div>
         {{ board_content }}
       </div>
@@ -13,10 +14,7 @@
         <div>
           {{ board_cnt }} Views | {{ likes_cnt }}Likes | {{ reply_cnt }} Coments
         </div>
-        <div>
-          <i class="icon ion-md-heart" @click="likesCheck"></i>
-          {{ board_updateDt | formatDate }}
-        </div>
+        <i class="icon ion-md-heart" @click="likesCheck"></i>
       </div>
     </div>
   </div>

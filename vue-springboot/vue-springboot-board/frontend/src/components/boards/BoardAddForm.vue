@@ -8,15 +8,6 @@
           <input id="title" type="text" v-model="board_title" />
         </div>
         <div>
-          <label for="image">Image</label>
-          <input
-            type="file"
-            accept="image/*"
-            ref="image"
-            @change="onFileChanged"
-          />
-        </div>
-        <div>
           <label for="contents">Contents </label>
           <textarea
             id="contents"
@@ -51,18 +42,18 @@ export default {
     },
   },
   methods: {
-    /* 파일 업로드 메소드
-      외부에 저장 된 뒤 저장 주소 String반환
-    */
-    async onFileChanged() {
-      this.board_image = this.$refs.image.files[0];
+    // /* 파일 업로드 메소드
+    //   외부에 저장 된 뒤 저장 주소 String반환
+    // */
+    // async onFileChanged() {
+    //   this.board_image = this.$refs.image.files[0];
 
-      var formData = new FormData();
-      formData.append("img", this.board_image);
+    //   var formData = new FormData();
+    //   formData.append("img", this.board_image);
 
-      const { data } = await imgUpload(formData);
-      this.board_image = data.img_url;
-    },
+    //   const { data } = await imgUpload(formData);
+    //   this.board_image = data.img_url;
+    // },
     /* 게시글 등록 메소드 */
     async submitForm() {
       try {
