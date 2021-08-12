@@ -2,12 +2,12 @@
   <div class="contents">
     <ul>
       <h3>댓글</h3>
-      <reply-likst-item
+      <reply-list-item
         v-for="replyItem in replyItems"
         :key="replyItem.reply_no"
         :replyItem="replyItem"
         @refresh="fetchData"
-      ></reply-likst-item>
+      ></reply-list-item>
       <hr />
       <reply-form @refresh="fetchData"></reply-form>
     </ul>
@@ -16,11 +16,11 @@
 
 <script>
 import ReplyForm from "../components/reply/ReplyForm.vue";
-import ReplyLikstItem from "../components/reply/ReplyLikstItem.vue";
+import ReplyListItem from "../components/reply/ReplyListItem.vue";
 import { fetchReply } from "../api/reply";
 
 export default {
-  components: { ReplyForm, ReplyLikstItem },
+  components: { ReplyForm, ReplyListItem },
   data() {
     return {
       replyItems: [],

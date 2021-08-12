@@ -8,12 +8,15 @@
       <div>
         {{ board_content }}
       </div>
+      <hr />
       <div>
-        {{ board_cnt }} Views | {{ likes_cnt }}Likes | {{ reply_cnt }} Coments
-      </div>
-      <div>
-        <i class="icon ion-md-heart" @click="likesCheck"></i>
-        {{ board_updateDt | formatDate }}
+        <div>
+          {{ board_cnt }} Views | {{ likes_cnt }}Likes | {{ reply_cnt }} Coments
+        </div>
+        <div>
+          <i class="icon ion-md-heart" @click="likesCheck"></i>
+          {{ board_updateDt | formatDate }}
+        </div>
       </div>
     </div>
   </div>

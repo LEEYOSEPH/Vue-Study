@@ -16,7 +16,11 @@
         @refresh="refresh"
       ></edit-reply-form>
     </div>
-    <rereply-page v-if="isRereply"></rereply-page>
+    <rereply-page
+      v-if="isRereply"
+      :replyItem="replyItem"
+      @replyForm="replyForm"
+    ></rereply-page>
   </li>
 </template>
 
@@ -75,6 +79,7 @@ export default {
       }
     },
     refresh() {
+      this.$emit("refresh");
       this.edit_check = false;
     },
     isRereplyCheck() {
@@ -83,6 +88,9 @@ export default {
       } else {
         this.rereply_check = false;
       }
+    },
+    replyForm() {
+      this.isRereplyCheck();
     },
   },
 };

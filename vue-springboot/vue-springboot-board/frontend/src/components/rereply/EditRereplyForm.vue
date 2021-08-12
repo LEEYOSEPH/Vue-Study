@@ -7,29 +7,31 @@
           id=""
           cols="5"
           rows="5"
-          v-model="reply_content"
+          v-model="rereply_content"
         ></textarea>
         <button type="submit" class="btn">수정</button>
         <button type="button" class="btn" @click="close">취소</button>
       </div>
     </form>
+    <hr />
   </li>
 </template>
 
 <script>
-import { editReply } from "../../api/reply";
+import { editRereply } from "../../api/rereply";
 
 export default {
   data() {
     return {
       user_no: this.$store.state.user_no,
-      board_no: this.replyItem.board_no,
-      reply_content: this.replyItem.reply_content,
-      reply_no: this.replyItem.reply_no,
+      board_no: this.rereplyItem.board_no,
+      rereply_content: this.rereplyItem.rereply_content,
+      rereply_no: this.rereplyItem.rereply_no,
+      reply_no: this.rereplyItem.reply_no,
     };
   },
   props: {
-    replyItem: {
+    rereplyItem: {
       type: Object,
       required: true,
     },
@@ -43,15 +45,15 @@ export default {
     async submitForm() {
       try {
         const replyData = {
-          user_name: this.$store.state.user_name,
           user_no: this.user_no,
           board_no: this.board_no,
-          reply_content: this.reply_content,
+          rereply_content: this.rereply_content,
+          rereply_no: this.rereply_no,
           reply_no: this.reply_no,
         };
         console.log(replyData);
-        await editReply(replyData);
-        this.reply_content = "";
+        await editRereply(replyData);
+        this.rereply_content = "";
         this.$emit("refresh");
       } catch (error) {
         console.log(error);

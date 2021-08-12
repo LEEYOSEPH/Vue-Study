@@ -2,21 +2,59 @@
   <div class="contents">
     <ul>
       <h5>답글</h5>
-      <hr />
-      <rereply-form></rereply-form>
+      <rereply-list-itme
+        v-for="rereplyItem in rereplyItems"
+        :key="rereplyItem.rereply_no"
+        :rereplyItem="rereplyItem"
+        @refresh="fetchData"
+      ></rereply-list-itme>
+      <rereply-form
+        :replyItem="replyItem"
+        @replyForm="replyForm"
+      ></rereply-form>
     </ul>
   </div>
 </template>
 
 <script>
 import RereplyForm from "../components/rereply/RereplyForm.vue";
+import RereplyListItme from "../components/rereply/RereplyListItme.vue";
+import { fetchRereply } from "../api/rereply";
 
 export default {
-  components: { RereplyForm },
+  components: { RereplyForm, RereplyListItme },
   data() {
     return {
-      replyItems: [],
+      rereplyItems: [],
     };
+  },
+  props: {
+    replyItem: {
+      type: Object,
+      required: true,
+    },
+  },
+  methods: {
+    async fetchData() {
+      try {
+        const replyData = {
+          reply_no: this.replyItem.reply_no,
+          board_no: this.replyItem.board_no,
+        };
+
+        const { data } = await fetchRereply(replyData);
+        console.log(data);
+        this.rereplyItems = data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    replyForm() {
+      this.$emit("replyForm");
+    },
+  },
+  created() {
+    this.fetchData();
   },
 };
 </script>

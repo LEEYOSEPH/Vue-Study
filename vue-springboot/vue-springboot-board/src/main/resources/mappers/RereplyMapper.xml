@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vue.springboot.mapper.RereplyMapper">
+	
+	<resultMap id="resultRereply" type="com.vue.springboot.domain.RereplyDTO" >
+		<result property="rereply_no" column="rereply_no" />
+		<result property="rereply_content" column="rereply_content" />
+		<result property="reply_no" column="reply_no" />
+		<result property="board_no" column="board_no" />
+		<result property="user_no" column="user_no" />
+		<result property="user_name" column="user_name" />
+		<result property="rereply_createdt" column="rereply_createdt" />
+		<result property="rereply_updatedt" column="rereply_updatedt" />
+	</resultMap>
+
+
+	<insert id="insertrereply">
+		INSERT INTO REREPLY VALUES (
+			rereply_no
+			,#{rereply_content}
+			, #{reply_no}
+			, #{board_no}
+			, #{user_no}
+			, #{user_name}
+			, now()
+			, now()
+		)
+	</insert>
+	
+	<select id="fetchRereply" resultMap="resultRereply">
+		SELECT *
+		FROM REREPLY
+		WHERE board_no = #{board_no}
+		AND reply_no = #{reply_no}
+	</select>
+	
+	<delete id="deleteRereply">
+		DELETE 
+		FROM REREPLY
+		WHERE board_no = #{board_no}
+		AND user_no = #{user_no}
+		AND reply_no = #{reply_no}
+		AND rereply_no = #{rereply_no}
+	</delete>
+	
+	<update id="editRereply">
+		UPDATE REREPLY
+		SET
+			rereply_content = #{rereply_content}
+			,rereply_updatedt = now()
+		WHERE board_no = #{board_no}
+		AND user_no = #{user_no}
+		AND reply_no = #{reply_no}
+		AND rereply_no = #{rereply_no} 
+	
+	
+	</update>
+</mapper>

@@ -10,6 +10,7 @@
           v-model="rereply_content"
         ></textarea>
         <button type="submit" class="btn">등록</button>
+        <button type="button" class="btn" @click="close">취소</button>
       </div>
     </form>
   </li>
@@ -22,17 +23,49 @@
 </template>
 
 <script>
+import { insertReReply } from "../../api/rereply";
+
 export default {
   data() {
     return {
       user_no: this.$store.state.user_no,
       board_no: this.$store.state.board_no,
+      reply_no: this.replyItem.reply_no,
+      user_name: this.$store.state.user_name,
       rereply_content: "",
     };
+  },
+  props: {
+    replyItem: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     isUserLogin() {
       return this.$store.getters.isLogin;
+    },
+  },
+  methods: {
+    async submitForm() {
+      try {
+        const replyData = {
+          user_no: this.user_no,
+          board_no: this.board_no,
+          reply_no: this.reply_no,
+          user_name: this.user_name,
+          rereply_content: this.rereply_content,
+        };
+        console.log(replyData);
+        await insertReReply(replyData);
+        this.rereply_content = "";
+        this.$emit("refresh");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    close() {
+      this.$emit("replyForm");
     },
   },
 };
@@ -46,7 +79,6 @@ export default {
   border-radius: 0.25rem;
   border: 0 solid #dae1e7;
   color: white;
-  margin-left: 390px;
 }
 .form {
   width: auto;
