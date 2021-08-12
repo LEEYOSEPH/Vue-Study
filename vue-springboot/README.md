@@ -3,7 +3,7 @@
 ---
 
 > Vue.js + SpringBoot 사용해서 제작한 게시판  
-> 블로그 : <https://gororingcoding.tistory.com/>  
+> 블로그 : <https://gororingcoding.tistory.com/47/>  
 > 깃허브 : <https://github.com/LEEYOSEPH/Vue-Study/tree/master/vue-springboot/>
 
 ## 목차
