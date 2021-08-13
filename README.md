@@ -1,6 +1,6 @@
 <h1>혼자서 공부하는 Vue.js입니다.</h1><br><br>
 
-<h2><a href="https://github.com/LEEYOSEPH/Vue-Study/tree/master/vue-til">vue-til</a></h2>
+<h2><a href="https://github.com/LEEYOSEPH/Vue-Study/tree/master/vue-til/vue-til">vue-til</a></h2>
 <span>인프런 <strong>Vue.js 끝장내기 - 실무에 필요한 모든 것</strong>을 공부한 내용 입니다. </span><br><br><br>
 <span>이런걸 배웠습니다!</span><br>
 <span>
