@@ -1,5 +1,17 @@
 <h1>혼자서 공부하는 Vue.js입니다.</h1><br><br>
 
+<h2><a href="https://github.com/LEEYOSEPH/Vue-Study/tree/master/vue-til">vue-til</a></h2>
+<span>인프런 <strong>Vue.js 끝장내기 - 실무에 필요한 모든 것</strong>을 공부한 내용 입니다. </span><br><br><br>
+<span>이런걸 배웠습니다!</span><br>
+<span>
+    <br>
+     - 프론트엔드 개발<br>
+     - 화면 UI 개발<br>
+     - Vue.js 실무<br>
+     - Vue.js 실무 환경 구성<br>
+     - Vue.js 개발<br>
+     - 백엔드 API 문서 읽는 방법<br>
+</span>
 <h2><a href="https://github.com/LEEYOSEPH/Vue-Study/tree/master/vue-news">vue-news</a></h2>
 <span>인프런 <strong>Vue.js 완벽 가이드 - 실습과 리팩토링으로 배우는 실전 개념</strong>을 공부한 내용 입니다. </span><br><br><br>
 <span>이런걸 배웠습니다!</span><br>

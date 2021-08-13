@@ -1,29 +1,42 @@
-# vue-til
+# 📌vue-news
 
-## Project setup
-```
-npm install
-```
+---
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+> 인프런 Vue.js 완벽 가이드 - 실습과 리팩토링으로 배우는 실전 개념을 공부한 내용 입니다.  
+> 블로그 : <https://gororingcoding.tistory.com/>
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 목차
 
-### Run your unit tests
-```
-npm run test:unit
-```
+---
 
-### Lints and fixes files
-```
-npm run lint
-```
+1. 공부 기간 & 참여 인원
+2. 사용 기술
+3. 어떤걸 공부 했나요?
+4. 후기
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 1. 공부 기간 & 참여 인원
+
+---
+
+- 2021년 7월 ~ 2021년 8월
+- 개인
+
+## 2. 사용 기술
+
+---
+
+> Front-end
+
+- Vue.js
+- Vuex
+- Vue Router
+- axios
+
+## 3. 어떤걸 공부 했나요?
+
+---
+
+- API 문서 보는 법과 사용 하는 방법
+- 라우터 & 컴포넌트 설계
+- CRUD
+- 브라우저 저장소를 이용한 인증 값 관리 등등...
