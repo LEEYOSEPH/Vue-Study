@@ -2,7 +2,7 @@
 
 ---
 
-> 인프런 Vue.js 중급 강좌 - 웹앱 제작으로 배워보는 Vue.js, ES6, Vuex의 공부 내용 입니다.
+> 인프런 Vue.js 중급 강좌 - 웹앱 제작으로 배워보는 Vue.js, ES6, Vuex의 공부 내용 입니다.  
 > 블로그 : <https://gororingcoding.tistory.com/>
 
 ## 목차
