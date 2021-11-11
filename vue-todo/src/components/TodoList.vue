@@ -3,9 +3,10 @@
       <ul>
         <li v-for="(todoItem,index) in todoItems" v-bind:key="todoItem" class="shadow">
           <i class="checkBtn fas fa-check" v-on:click="toggleComplete(todoItem,index)"></i>
-          <span v-bind:class="{textCompleted: todoItem.completed}">
-            {{todoItem.item}}
-          </span>
+          <!-- <span v-bind:class="{textCompleted: todoItem.completed}">
+            {{todoItem}}
+          </span> -->
+          <span v-bind:class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
           <span class="removeBtn" v-on:click="removeTodo(todoItem,index)">
             <i class="fas fa-trash-alt"></i>
           </span>
@@ -35,9 +36,8 @@ export default {
   created: function() {
    if(localStorage.length> 0) {
      for(let i = 0; i< localStorage.length; i++) {
-       if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-         console.log(localStorage.getItem(localStorage.key(i)));
-         this.todoItems.push(localStorage.getItem(localStorage.key(i)));
+       if(localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+         this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
        }
      }
    }
